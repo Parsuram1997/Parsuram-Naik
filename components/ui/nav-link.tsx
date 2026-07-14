@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { usePathname, useRouter } from "next/navigation";
 
 interface NavLinkProps {
   href: string;
@@ -12,9 +13,20 @@ interface NavLinkProps {
 }
 
 export function NavLink({ href, children, className, onClick, isActive }: NavLinkProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const isHomePage = pathname === "/";
+
     if (href.startsWith("#") || href === "/") {
       e.preventDefault();
+      
+      if (!isHomePage) {
+        if (onClick) onClick();
+        router.push(href === "/" ? "/" : `/${href}`);
+        return;
+      }
       
       const targetId = href === "/" ? "home" : href.substring(1);
       const targetElement = document.getElementById(targetId);
