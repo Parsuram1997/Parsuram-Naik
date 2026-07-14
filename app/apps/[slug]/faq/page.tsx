@@ -8,8 +8,9 @@ import { ChevronLeft, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function FAQPage({ params }: { params: { slug: string } }) {
-  const app = getAppBySlug(params.slug);
+export default async function FAQPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (!app || !app.faq) {

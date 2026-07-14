@@ -5,23 +5,25 @@ import { Container } from "@/components/ui/container";
 import Link from "next/link";
 import { ChevronLeft, Mail, Info, Bug, Lightbulb } from "lucide-react";
 
-interface AppParams {
-  params: {
+type AppParams = {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: AppParams): Promise<Metadata> {
-  const app = getAppBySlug(params.slug);
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
   if (!app) return { title: "Not Found" };
   return {
-    title: `Support | ${app.name} | Parsu Tech`,
+    title: `Support | ${app.name} | Parsuram Naik`,
     description: `Get support for ${app.name}.`,
   };
 }
 
-export default function SupportPage({ params }: AppParams) {
-  const app = getAppBySlug(params.slug);
+export default async function SupportPage({ params }: AppParams) {
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
 
   if (!app) {
     notFound();

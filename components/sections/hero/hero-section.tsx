@@ -191,7 +191,7 @@ export function HeroSection() {
               <SocialIcon title="Facebook" href="https://facebook.com" icon={<FaFacebookF className="h-5 w-5 hover:text-blue-500 transition-colors" />} />
               <SocialIcon title="GitHub" href="https://github.com" icon={<FaGithub className="h-5 w-5 hover:text-foreground transition-colors" />} />
               <SocialIcon title="LinkedIn" href="https://linkedin.com" icon={<FaLinkedinIn className="h-5 w-5 hover:text-blue-400 transition-colors" />} />
-              <SocialIcon title="Email" href="mailto:contact@parsutech.com" icon={<Mail className="h-5 w-5 hover:text-primary-green transition-colors" />} />
+              <SocialIcon title="Email" href="mailto:contact@parsuramnaik.com" icon={<Mail className="h-5 w-5 hover:text-primary-green transition-colors" />} />
             </motion.div>
           </motion.div>
 

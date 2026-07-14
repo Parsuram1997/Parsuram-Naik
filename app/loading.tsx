@@ -7,7 +7,7 @@ export default function Loading() {
         <div className="absolute inset-4 border-t-2 border-white rounded-full animate-spin opacity-30"></div>
       </div>
       <h2 className="text-2xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-blue to-primary-green animate-pulse">
-        Loading Parsu Tech
+        Loading Parsuram Naik
       </h2>
     </div>
   );

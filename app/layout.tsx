@@ -31,16 +31,16 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://parsutech.com"),
+  metadataBase: new URL("https://parsuramnaik.com"),
   title: {
-    default: "Parsu Tech | Premium Portfolio & Digital Identity",
-    template: "%s | Parsu Tech",
+    default: "Parsuram Naik | Premium Portfolio & Digital Identity",
+    template: "%s | Parsuram Naik",
   },
   description: "Official digital identity of Parsuram Naik. Explore Android apps, modern websites, courses, and educational tech content.",
-  keywords: ["Parsuram Naik", "Parsu Tech", "Android Developer", "Web Developer", "React", "Next.js", "AI", "Portfolio", "Courses"],
-  authors: [{ name: "Parsuram Naik", url: "https://parsutech.com" }],
+  keywords: ["Parsuram Naik", "Parsuram Naik", "Android Developer", "Web Developer", "React", "Next.js", "AI", "Portfolio", "Courses"],
+  authors: [{ name: "Parsuram Naik", url: "https://parsuramnaik.com" }],
   creator: "Parsuram Naik",
-  publisher: "Parsu Tech",
+  publisher: "Parsuram Naik",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",
@@ -49,16 +49,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://parsutech.com",
-    title: "Parsu Tech | Premium Portfolio",
+    url: "https://parsuramnaik.com",
+    title: "Parsuram Naik | Premium Portfolio",
     description: "Official digital identity of Parsuram Naik. Explore Android apps, modern websites, courses, and educational tech content.",
-    siteName: "Parsu Tech",
+    siteName: "Parsuram Naik",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Parsu Tech | Premium Portfolio",
+    title: "Parsuram Naik | Premium Portfolio",
     description: "Official digital identity of Parsuram Naik.",
-    creator: "@ParsuTech",
+    creator: "@ParsuramNaik",
   },
   robots: {
     index: true,
@@ -77,16 +77,16 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Parsuram Naik",
-  url: "https://parsutech.com",
+  url: "https://parsuramnaik.com",
   jobTitle: "Software Developer",
   worksFor: {
     "@type": "Organization",
-    name: "Parsu Tech"
+    name: "Parsuram Naik"
   },
   sameAs: [
-    "https://twitter.com/ParsuTech",
-    "https://github.com/ParsuTech",
-    "https://www.youtube.com/@ParsuTech"
+    "https://twitter.com/ParsuramNaik",
+    "https://github.com/ParsuramNaik",
+    "https://www.youtube.com/@ParsuramNaik"
   ]
 };
 

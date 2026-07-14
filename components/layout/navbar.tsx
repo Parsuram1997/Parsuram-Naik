@@ -120,7 +120,7 @@ export function Navbar() {
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-blue to-primary-green text-white shadow-lg">
                   <Zap className="w-5 h-5 fill-white" />
                 </div>
-                <span>PARSU <span className="text-primary-blue">TECH</span></span>
+                <span>PARSURAM <span className="text-primary-blue">NAIK</span></span>
               </motion.div>
             </a>
 

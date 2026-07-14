@@ -5,14 +5,15 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Download, Info, Shield, FileText, HelpCircle, FileClock, Trash2, ExternalLink } from "lucide-react";
 
-interface AppParams {
-  params: {
+type AppParams = {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: AppParams): Promise<Metadata> {
-  const app = getAppBySlug(params.slug);
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
   
   if (!app) {
     return {
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: AppParams): Promise<Metadata>
   }
 
   return {
-    title: `${app.name} | Parsu Tech`,
+    title: `${app.name} | Parsuram Naik`,
     description: app.description,
     openGraph: {
       title: `${app.name} - Premium Android App`,
@@ -31,8 +32,9 @@ export async function generateMetadata({ params }: AppParams): Promise<Metadata>
   };
 }
 
-export default function AppLandingPage({ params }: AppParams) {
-  const app = getAppBySlug(params.slug);
+export default async function AppLandingPage({ params }: AppParams) {
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
 
   if (!app) {
     notFound();

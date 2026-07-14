@@ -5,14 +5,15 @@ import { Container } from "@/components/ui/container";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
-interface AppParams {
-  params: {
+type AppParams = {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: AppParams): Promise<Metadata> {
-  const app = getAppBySlug(params.slug);
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
   
   if (!app) {
     return {
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: AppParams): Promise<Metadata>
   }
 
   return {
-    title: `Terms of Service | ${app.name} | Parsu Tech`,
+    title: `Terms of Service | ${app.name} | Parsuram Naik`,
     description: `Terms of Service for ${app.name} developed by ${app.developer}.`,
     openGraph: {
       title: `${app.name} - Terms of Service`,
@@ -30,8 +31,9 @@ export async function generateMetadata({ params }: AppParams): Promise<Metadata>
   };
 }
 
-export default function TermsOfServicePage({ params }: AppParams) {
-  const app = getAppBySlug(params.slug);
+export default async function TermsOfServicePage({ params }: AppParams) {
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
 
   if (!app || !app.terms) {
     notFound();

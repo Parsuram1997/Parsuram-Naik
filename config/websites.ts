@@ -40,7 +40,7 @@ export const websitesData: WebsiteData[] = [
   },
   {
     id: "parsu-tech-portfolio",
-    name: "Parsu Tech Portfolio",
+    name: "Parsuram Naik Portfolio",
     description: "Official personal portfolio website showcasing projects and skills.",
     status: "LIVE",
     category: "Portfolio",

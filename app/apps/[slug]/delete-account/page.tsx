@@ -5,23 +5,25 @@ import { Container } from "@/components/ui/container";
 import Link from "next/link";
 import { ChevronLeft, Trash2, Mail, Info, ShieldAlert } from "lucide-react";
 
-interface AppParams {
-  params: {
+type AppParams = {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: AppParams): Promise<Metadata> {
-  const app = getAppBySlug(params.slug);
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
   if (!app) return { title: "Not Found" };
   return {
-    title: `Delete Account | ${app.name} | Parsu Tech`,
+    title: `Delete Account | ${app.name} | Parsuram Naik`,
     description: `Information about deleting your account in ${app.name}.`,
   };
 }
 
-export default function DeleteAccountPage({ params }: AppParams) {
-  const app = getAppBySlug(params.slug);
+export default async function DeleteAccountPage({ params }: AppParams) {
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
 
   if (!app || !app.deleteAccount) {
     notFound();

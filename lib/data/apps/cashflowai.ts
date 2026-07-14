@@ -13,11 +13,11 @@ export const cashflowai: AppData = {
     "Secure cloud sync",
     "Goal setting and tracking"
   ],
-  developer: "PARSU TECH",
+  developer: "PARSURAM NAIK",
   version: "1.2.0",
   lastUpdated: "October 15, 2025",
-  playStoreUrl: "https://play.google.com/store/apps/details?id=com.parsutech.cashflowai",
-  supportEmail: "support@parsutech.com",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.parsuramnaik.cashflowai",
+  supportEmail: "support@parsuramnaik.in",
   
   screenshots: [
     { url: "https://images.unsplash.com/photo-1616489953149-ff44bea2c1dd?auto=format&fit=crop&q=80&w=1080&h=1920", alt: "Dashboard" },
@@ -26,32 +26,120 @@ export const cashflowai: AppData = {
   ],
   
   privacyPolicy: {
-    lastUpdated: "September 1, 2025",
+    lastUpdated: "July 14, 2026",
     sections: [
       {
-        title: "1. Information We Collect",
+        title: "1. Introduction",
         content: [
-          "We collect information you provide directly to us when you create an account, such as your name and email address.",
-          "We also automatically collect certain information about your device and how you interact with the app, including crash reports and usage statistics."
+          "Welcome to <strong>CashFlowAI</strong>. We are committed to protecting your personal information and your right to privacy.",
+          "CashFlowAI is an intelligent personal finance application designed to help you track income, expenses, and budgets securely. Your privacy is critically important to us.",
+          "By accessing or using the CashFlowAI application, you agree to this Privacy Policy. If you do not agree with our policies and practices, please do not use our application."
         ]
       },
       {
-        title: "2. How We Use Your Information",
+        title: "2. Information We Collect",
         content: [
-          "We use the information we collect to provide, maintain, and improve CashFlowAI, as well as to communicate with you and personalize your experience."
+          "We collect information to provide better services to our users. The information we collect falls into the following categories:",
+          "<strong>Account Information</strong><ul class='list-disc pl-5 mt-2 mb-4 space-y-1'><li>Name</li><li>Email Address</li><li>Profile Photo (Google Sign-In only)</li></ul>",
+          "<strong>Financial Information</strong><ul class='list-disc pl-5 mt-2 mb-4 space-y-1'><li>Income Records</li><li>Expense Records</li><li>Categories</li><li>Budgets</li><li>Notes</li><li>Reports</li></ul>",
+          "<strong>Device Information</strong><ul class='list-disc pl-5 mt-2 mb-4 space-y-1'><li>Device Model</li><li>Android Version</li><li>App Version</li></ul>",
+          "<strong>Usage Information</strong><ul class='list-disc pl-5 mt-2 mb-4 space-y-1'><li>App usage behavior</li><li>Crash reports</li><li>Performance logs</li></ul>"
         ]
       },
       {
-        title: "3. Data Security",
+        title: "3. How We Use Your Information",
         content: [
-          "We implement reasonable security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. All financial data is encrypted."
+          "We use the information we collect for various purposes, including:",
+          "<ul class='list-disc pl-5 mt-2 space-y-1'><li>Creating and managing your user account</li><li>Cloud synchronization across multiple devices</li><li>Authentication and security verification</li><li>Data backup and restoration</li><li>Delivering a personalized experience (e.g., currency preferences)</li><li>Improving our application and developing new features</li><li>Providing customer support and responding to inquiries</li><li>Security monitoring and fraud prevention</li></ul>"
+        ]
+      },
+      {
+        title: "4. Firebase Services",
+        content: [
+          "CashFlowAI utilizes Firebase services, which are provided by Google, to function securely and efficiently.",
+          "The specific Firebase services we use include:<ul class='list-disc pl-5 mt-2 space-y-1'><li><strong>Firebase Authentication:</strong> To securely manage user logins.</li><li><strong>Cloud Firestore:</strong> To store and sync your financial data in real-time.</li><li><strong>Firebase Cloud Messaging:</strong> For sending notifications (if enabled by you).</li><li><strong>Firebase Analytics:</strong> (Planned for future updates) To understand app usage and improve UX.</li><li><strong>Firebase Crashlytics:</strong> (Planned for future updates) To identify and fix app crashes quickly.</li></ul>",
+          "By using our app, you acknowledge that your data is processed through Google's Firebase infrastructure."
+        ]
+      },
+      {
+        title: "5. Google Sign-In",
+        content: [
+          "If you choose to register or log in using Google Sign-In, we will receive certain profile information from your Google account.",
+          "This information is strictly limited to your <strong>Name, Email Address, and Profile Photo</strong>.",
+          "We do <strong>not</strong> have access to your Google password, nor do we store any passwords on our servers when you use Google Sign-In."
+        ]
+      },
+      {
+        title: "6. Local Data",
+        content: [
+          "To provide a fast and seamless experience, some information is stored locally on your device rather than in the cloud.",
+          "Locally stored data includes:<ul class='list-disc pl-5 mt-2 space-y-1'><li>Theme preferences (Dark/Light mode)</li><li>Selected base currency</li><li>Notification Settings</li><li>App Lock Settings (PIN or Biometrics)</li><li>Temporary Cache for faster loading</li></ul>"
+        ]
+      },
+      {
+        title: "7. Data Security",
+        content: [
+          "We implement enterprise-grade security measures designed to protect your information:",
+          "<strong>Encryption:</strong> All data transmitted between your device and our servers is encrypted using industry-standard TLS/SSL protocols.",
+          "<strong>Infrastructure:</strong> Your data is stored on secure Firebase infrastructure governed by strict access controls.",
+          "<strong>Authentication:</strong> We use token-based authentication to ensure that only you can access your account.",
+          "While we use reasonable security practices, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure."
+        ]
+      },
+      {
+        title: "8. User Rights",
+        content: [
+          "Depending on your location, you may have specific rights regarding your personal information.",
+          "Users of CashFlowAI have the right to:<ul class='list-disc pl-5 mt-2 space-y-1'><li><strong>Access their data:</strong> View all financial records directly in the app.</li><li><strong>Update their data:</strong> Modify or correct any existing entries or profile information.</li><li><strong>Delete their account:</strong> Permanently erase their account and all associated data.</li><li><strong>Contact support:</strong> Reach out to us for privacy-related inquiries.</li></ul>"
+        ]
+      },
+      {
+        title: "9. Delete Account",
+        content: [
+          "You can permanently delete your account and all associated data directly from the application.",
+          "Account deletion removes your:<ul class='list-disc pl-5 mt-2 space-y-1'><li>User Account</li><li>Cloud Backup</li><li>Transactions</li><li>Categories</li><li>Budgets</li><li>Reports</li><li>Settings</li></ul>",
+          "<strong>Please Note:</strong> Account deletion is permanent and cannot be undone.",
+          "For more details or to initiate a manual deletion request, visit our <a href='/apps/cashflowai/delete-account' class='text-primary-blue hover:underline'>Delete Account</a> page."
+        ]
+      },
+      {
+        title: "10. Third-Party Services",
+        content: [
+          "CashFlowAI utilizes trusted third-party services to operate effectively.",
+          "These include:<ul class='list-disc pl-5 mt-2 space-y-1'><li>Google Play Services</li><li>Google Firebase</li><li>Google Authentication</li></ul>",
+          "These third-party providers have their own privacy policies addressing how they use such information."
+        ]
+      },
+      {
+        title: "11. Children's Privacy",
+        content: [
+          "CashFlowAI is not intended for children under 13 years of age.",
+          "We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us."
+        ]
+      },
+      {
+        title: "12. Changes to this Privacy Policy",
+        content: [
+          "We may update our Privacy Policy from time to time.",
+          "We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date.",
+          "You are advised to review this Privacy Policy periodically for any changes. Changes are effective immediately after they are posted."
+        ]
+      },
+      {
+        title: "13. Contact Us",
+        content: [
+          "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.",
+          "<strong>Developer Name:</strong> Parsuram Naik",
+          "<strong>Brand:</strong> PARSURAM NAIK",
+          "<strong>Support Email:</strong> <a href='mailto:support@parsuramnaik.in' class='text-primary-blue hover:underline'>support@parsuramnaik.in</a>",
+          "<strong>Website:</strong> <a href='https://parsuramnaik.in' target='_blank' class='text-primary-blue hover:underline'>https://parsuramnaik.in</a>"
         ]
       }
     ]
   },
   
   terms: {
-    lastUpdated: "September 1, 2025",
+    lastUpdated: "July 14, 2026",
     sections: [
       {
         title: "1. Acceptance of Terms",
@@ -68,7 +156,7 @@ export const cashflowai: AppData = {
       {
         title: "3. Disclaimer",
         content: [
-          "The materials within CashFlowAI are provided on an 'as is' basis. PARSU TECH makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties."
+          "The materials within CashFlowAI are provided on an 'as is' basis. PARSURAM NAIK makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties."
         ]
       }
     ]

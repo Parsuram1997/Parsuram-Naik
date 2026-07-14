@@ -5,8 +5,8 @@ import { Container } from "@/components/ui/container";
 import { Zap, ChevronRight, Smartphone } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Apps | Parsu Tech",
-  description: "Explore all premium Android applications and software products created by Parsu Tech.",
+  title: "Apps | Parsuram Naik",
+  description: "Explore all premium Android applications and software products created by Parsuram Naik.",
 };
 
 export default function AppsHubPage() {

@@ -5,23 +5,25 @@ import { Container } from "@/components/ui/container";
 import Link from "next/link";
 import { ChevronLeft, FileClock } from "lucide-react";
 
-interface AppParams {
-  params: {
+type AppParams = {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: AppParams): Promise<Metadata> {
-  const app = getAppBySlug(params.slug);
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
   if (!app) return { title: "Not Found" };
   return {
-    title: `Release Notes | ${app.name} | Parsu Tech`,
+    title: `Release Notes | ${app.name} | Parsuram Naik`,
     description: `Release notes and version history for ${app.name}.`,
   };
 }
 
-export default function ChangelogPage({ params }: AppParams) {
-  const app = getAppBySlug(params.slug);
+export default async function ChangelogPage({ params }: AppParams) {
+  const { slug } = await params;
+  const app = getAppBySlug(slug);
 
   if (!app || !app.changelog) {
     notFound();

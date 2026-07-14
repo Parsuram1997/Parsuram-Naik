@@ -59,7 +59,7 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
             <span className="font-heading font-bold text-xl tracking-tight">
-              PARSU <span className="text-primary-blue">TECH</span>
+              PARSURAM <span className="text-primary-blue">NAIK</span>
             </span>
             <button
               onClick={onClose}

@@ -6,7 +6,7 @@ import { FaWhatsapp, FaLinkedinIn, FaYoutube, FaGithub } from "react-icons/fa6";
 
 export function QuickActions() {
   const actions = [
-    { name: "Email Me", icon: <Mail className="w-5 h-5" />, href: "mailto:contact@parsutech.com", color: "text-primary-blue", bg: "bg-primary-blue/10" },
+    { name: "Email Me", icon: <Mail className="w-5 h-5" />, href: "mailto:contact@parsuramnaik.com", color: "text-primary-blue", bg: "bg-primary-blue/10" },
     { name: "WhatsApp", icon: <FaWhatsapp className="w-5 h-5" />, href: "https://wa.me/1234567890", color: "text-green-500", bg: "bg-green-500/10" },
     { name: "Schedule a Call", icon: <Phone className="w-5 h-5" />, href: "#", color: "text-purple-500", bg: "bg-purple-500/10", badge: "Coming Soon" },
     { name: "Visit LinkedIn", icon: <FaLinkedinIn className="w-5 h-5" />, href: "https://linkedin.com", color: "text-blue-500", bg: "bg-blue-500/10" },

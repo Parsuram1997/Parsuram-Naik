@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://parsutech.com/sitemap.xml',
+    sitemap: 'https://parsuramnaik.com/sitemap.xml',
   };
 }

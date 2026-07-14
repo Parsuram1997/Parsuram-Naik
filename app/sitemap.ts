@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://parsutech.com',
+      url: 'https://parsuramnaik.com',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,

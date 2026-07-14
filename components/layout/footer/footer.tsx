@@ -33,7 +33,7 @@ export function Footer() {
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-blue to-primary-green text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]">
                   <Zap className="w-5 h-5 fill-white" />
                 </div>
-                <span>PARSU <span className="text-primary-blue">TECH</span></span>
+                <span>PARSURAM <span className="text-primary-blue">NAIK</span></span>
               </a>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 Building Android Apps, AI Products, Websites and Educational Content to help people learn technology.
@@ -50,8 +50,8 @@ export function Footer() {
 
               {/* Contact Info */}
               <div className="flex flex-col gap-3 mt-auto">
-                <a href="mailto:contact@parsutech.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors">
-                  <Mail className="w-4 h-4 text-primary-green" /> contact@parsutech.com
+                <a href="mailto:contact@parsuramnaik.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors">
+                  <Mail className="w-4 h-4 text-primary-green" /> contact@parsuramnaik.com
                 </a>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <MapPin className="w-4 h-4 text-primary-blue" /> Remote / Global
@@ -121,12 +121,12 @@ export function Footer() {
             <SocialIcon title="GitHub" href="https://github.com" icon={<FaGithub className="h-5 w-5 hover:text-white transition-colors" />} className="bg-white/5 border border-white/10 hover:border-white/50 hover:bg-white/10" />
             <SocialIcon title="LinkedIn" href="https://linkedin.com" icon={<FaLinkedinIn className="h-5 w-5 hover:text-blue-400 transition-colors" />} className="bg-white/5 border border-white/10 hover:border-blue-400/50 hover:bg-blue-400/10" />
             <SocialIcon title="X (Twitter)" href="https://twitter.com" icon={<FaXTwitter className="h-5 w-5 hover:text-white transition-colors" />} className="bg-white/5 border border-white/10 hover:border-white/50 hover:bg-white/10" />
-            <SocialIcon title="Email" href="mailto:contact@parsutech.com" icon={<Mail className="h-5 w-5 hover:text-primary-green transition-colors" />} className="bg-white/5 border border-white/10 hover:border-primary-green/50 hover:bg-primary-green/10" />
+            <SocialIcon title="Email" href="mailto:contact@parsuramnaik.com" icon={<Mail className="h-5 w-5 hover:text-primary-green transition-colors" />} className="bg-white/5 border border-white/10 hover:border-primary-green/50 hover:bg-primary-green/10" />
           </div>
 
           {/* Bottom Bar */}
           <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 text-xs text-muted-foreground gap-4 text-center md:text-left">
-            <p>© {currentYear} PARSU TECH. All rights reserved.</p>
+            <p>© {currentYear} PARSURAM NAIK. All rights reserved.</p>
             <p>Designed & Developed by <span className="text-white font-medium">Parsuram Naik</span></p>
             <div className="flex items-center gap-4">
               <span>Version v1.0.0</span>
