@@ -16,13 +16,27 @@ export const cashflowai: AppData = {
   developer: "PARSURAM NAIK",
   version: "1.2.0",
   lastUpdated: "October 15, 2025",
+  category: "Finance",
+  downloads: "10K+",
+  rating: 4.8,
+  platform: "Android",
+  cloudSync: "Firebase",
+  authentication: "Google Sign-In",
+  status: "Stable",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.parsuramnaik.cashflowai",
   supportEmail: "support@parsuramnaik.in",
   
   screenshots: [
-    { url: "https://images.unsplash.com/photo-1616489953149-ff44bea2c1dd?auto=format&fit=crop&q=80&w=1080&h=1920", alt: "Dashboard" },
-    { url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1080&h=1920", alt: "Analytics" },
-    { url: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1080&h=1920", alt: "Budgeting" }
+    { url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80", alt: "Analytics Dashboard" },
+    { url: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80", alt: "Budget Tracking" },
+    { url: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80", alt: "Expense Insights" },
+    { url: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80", alt: "Financial Goals" },
+    { url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80", alt: "Monthly Reports" },
+    { url: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80", alt: "Cashflow Analysis" },
+    { url: "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=600&q=80", alt: "Transaction History" },
+    { url: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=600&q=80", alt: "Category Management" },
+    { url: "https://images.unsplash.com/photo-1533022139390-e31c488d69e2?auto=format&fit=crop&w=600&q=80", alt: "Smart Alerts" },
+    { url: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80", alt: "Secure Cloud Sync" }
   ],
   
   privacyPolicy: {
@@ -144,19 +158,50 @@ export const cashflowai: AppData = {
       {
         title: "1. Acceptance of Terms",
         content: [
-          "By accessing or using CashFlowAI, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the app."
+          "By accessing, downloading, or using CashFlowAI, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access or use the application.",
+          "These Terms apply to all visitors, users, and others who access or use the Service."
         ]
       },
       {
-        title: "2. Use License",
+        title: "2. Description of Service",
         content: [
-          "Permission is granted to temporarily download one copy of CashFlowAI for personal, non-commercial transitory viewing only."
+          "CashFlowAI is a personal finance management application that allows users to track their income, expenses, and budgets.",
+          "The Service is provided for informational and tracking purposes only. It is not intended to provide financial, tax, or legal advice."
         ]
       },
       {
-        title: "3. Disclaimer",
+        title: "3. User Accounts",
         content: [
-          "The materials within CashFlowAI are provided on an 'as is' basis. PARSURAM NAIK makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties."
+          "When you create an account with us, you must provide information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms.",
+          "You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password.",
+          "You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account."
+        ]
+      },
+      {
+        title: "4. Intellectual Property",
+        content: [
+          "The Service and its original content, features, and functionality are and will remain the exclusive property of PARSURAM NAIK and its licensors.",
+          "The Service is protected by copyright, trademark, and other laws of both the local and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of PARSURAM NAIK."
+        ]
+      },
+      {
+        title: "5. Termination",
+        content: [
+          "We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.",
+          "Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service or delete your account through the settings."
+        ]
+      },
+      {
+        title: "6. Limitation of Liability",
+        content: [
+          "In no event shall PARSURAM NAIK, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service."
+        ]
+      },
+      {
+        title: "7. Disclaimer",
+        content: [
+          "The materials within CashFlowAI are provided on an 'as is' basis. PARSURAM NAIK makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties.",
+          "We do not warrant that the Service will function uninterrupted, secure or available at any particular time or location; any errors or defects will be corrected; or that the Service is free of viruses or other harmful components."
         ]
       }
     ]
@@ -219,10 +264,13 @@ export const cashflowai: AppData = {
     },
     {
       version: "1.0.0",
-      date: "August 1, 2025",
+      date: "July 14, 2026",
       changes: [
         "Initial release of CashFlowAI",
-        "Basic expense tracking and budgeting features"
+        "Added income and expense tracking",
+        "Added basic budgeting features",
+        "Added visual reports and charts",
+        "Implemented secure local storage"
       ]
     }
   ]

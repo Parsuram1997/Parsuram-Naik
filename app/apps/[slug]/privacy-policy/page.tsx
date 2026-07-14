@@ -1,9 +1,7 @@
 import { getAppBySlug } from "@/lib/data/apps";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { Container } from "@/components/ui/container";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { LegalPageClient } from "@/components/apps/LegalPageClient";
 
 type AppParams = {
   params: Promise<{
@@ -14,7 +12,7 @@ type AppParams = {
 export async function generateMetadata({ params }: AppParams): Promise<Metadata> {
   const { slug } = await params;
   const app = getAppBySlug(slug);
-  
+
   if (!app) {
     return {
       title: "Not Found",
@@ -23,15 +21,12 @@ export async function generateMetadata({ params }: AppParams): Promise<Metadata>
 
   return {
     title: `Privacy Policy | ${app.name} | Parsuram Naik`,
-    description: `Privacy Policy for ${app.name} developed by ${app.developer}.`,
-    openGraph: {
-      title: `${app.name} - Privacy Policy`,
-      description: `Privacy Policy for ${app.name} developed by ${app.developer}.`,
+    description: `Read the privacy policy for ${app.name}. Understand how we collect, use, and protect your data.`,
+    alternates: {
+      canonical: `https://parsuramnaik.in/apps/${app.slug}/privacy-policy`,
     },
   };
 }
-
-import { PrivacyPolicyClient } from "./privacy-policy-client";
 
 export default async function PrivacyPolicyPage({ params }: AppParams) {
   const { slug } = await params;
@@ -43,7 +38,7 @@ export default async function PrivacyPolicyPage({ params }: AppParams) {
 
   return (
     <main className="min-h-screen">
-      <PrivacyPolicyClient app={app} />
+      <LegalPageClient app={app} legalData={app.privacyPolicy} pageTitle="Privacy Policy" />
     </main>
   );
 }

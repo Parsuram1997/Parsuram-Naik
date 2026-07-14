@@ -35,6 +35,13 @@ export interface AppData {
   developer: string;
   version: string;
   lastUpdated: string;
+  category?: string;
+  downloads?: string;
+  rating?: number;
+  platform?: string;
+  cloudSync?: string;
+  authentication?: string;
+  status?: string;
   downloadUrl?: string; // e.g. direct APK
   playStoreUrl?: string;
   supportEmail: string;

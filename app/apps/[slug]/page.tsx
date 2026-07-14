@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Download, Info, Shield, FileText, HelpCircle, FileClock, Trash2, ExternalLink } from "lucide-react";
+import { Shield, FileText, HelpCircle, FileClock, Trash2, ExternalLink } from "lucide-react";
+import { AppHeroClient } from "@/components/apps/AppHeroClient";
 
 type AppParams = {
   params: Promise<{
@@ -43,80 +44,18 @@ export default async function AppLandingPage({ params }: AppParams) {
   return (
     <main className="min-h-screen pt-32 pb-24">
       <Container className="max-w-[1400px]">
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row gap-8 items-start mb-16 bg-white/5 border border-white/10 rounded-3xl p-6 md:p-10 glass">
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden bg-black/40 border border-white/10 shrink-0 shadow-2xl">
-            <img 
-              src={app.icon} 
-              alt={`${app.name} icon`} 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          
-          <div className="flex-1">
-            <div className="flex flex-wrap items-center gap-3 mb-3">
-              <h1 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight">
-                {app.name}
-              </h1>
-              <span className="px-3 py-1 rounded-full bg-primary-blue/10 border border-primary-blue/20 text-primary-blue text-xs uppercase tracking-wider font-semibold">
-                v{app.version}
-              </span>
-            </div>
-            
-            <p className="text-muted-foreground mb-6 text-lg max-w-2xl">
-              {app.description}
-            </p>
-            
-            <div className="flex flex-wrap items-center gap-4">
-              {app.playStoreUrl && (
-                <a 
-                  href={app.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-gray-200 transition-colors"
-                >
-                  <Download className="w-5 h-5" />
-                  Get on Google Play
-                </a>
-              )}
-              {app.downloadUrl && (
-                <a 
-                  href={app.downloadUrl}
-                  className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 text-white font-semibold hover:bg-white/20 transition-colors border border-white/10"
-                >
-                  <Download className="w-5 h-5" />
-                  Direct Download
-                </a>
-              )}
-            </div>
-          </div>
-          
-          <div className="hidden lg:block w-[300px] shrink-0 bg-black/40 rounded-2xl p-6 border border-white/5">
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">App Info</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Developer</span>
-                <span className="text-white font-medium">{app.developer}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Updated</span>
-                <span className="text-white font-medium">{app.lastUpdated}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Version</span>
-                <span className="text-white font-medium">{app.version}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Premium Flagship Hero */}
+        <AppHeroClient app={app} />
 
         {/* Screenshots */}
         {app.screenshots && app.screenshots.length > 0 && (
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold font-heading text-white mb-8">Screenshots</h2>
+          <div className="mb-20">
+            <h2 className="text-2xl font-bold font-heading text-white mb-8 flex items-center gap-3">
+              App Preview
+            </h2>
             <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent snap-x">
               {app.screenshots.map((screenshot, i) => (
-                <div key={i} className="w-[280px] shrink-0 snap-center rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-black/40 aspect-[9/19]">
+                <div key={i} className="w-[280px] md:w-[320px] shrink-0 snap-center rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-black/40 aspect-[9/19] hover:border-white/20 transition-colors">
                   <img src={screenshot.url} alt={screenshot.alt} className="w-full h-full object-cover" />
                 </div>
               ))}
@@ -126,71 +65,104 @@ export default async function AppLandingPage({ params }: AppParams) {
 
         {/* Features */}
         {app.features && app.features.length > 0 && (
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold font-heading text-white mb-8">Key Features</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div id="features" className="mb-24 scroll-mt-32">
+            <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-10">Key Features</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {app.features.map((feature, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
-                  <div className="w-6 h-6 rounded-full bg-primary-green/10 flex items-center justify-center text-primary-green shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-primary-green" />
+                <div key={i} className="flex items-start gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all hover:scale-[1.02] glass">
+                  <div className="w-10 h-10 rounded-2xl bg-primary-green/10 flex items-center justify-center text-primary-green shrink-0 shadow-inner">
+                    <div className="w-3 h-3 rounded-full bg-primary-green shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
                   </div>
-                  <span className="text-muted-foreground">{feature}</span>
+                  <span className="text-muted-foreground font-medium text-lg pt-1">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* Legal & Support Links */}
+        {/* Legal & Support Links - Premium Redesign */}
         <div>
-          <h2 className="text-2xl font-bold font-heading text-white mb-8">Resources & Legal</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Link href={`/apps/${app.slug}/privacy-policy`} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
-              <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
-                <Shield className="w-5 h-5" />
+          <div className="flex flex-col items-center mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-4">Resources & Support</h2>
+            <p className="text-muted-foreground max-w-xl">Everything you need to know about {app.name}, from our privacy practices to getting help.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link href={`/apps/${app.slug}/privacy-policy`} className="flex flex-col gap-4 p-6 rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-blue-500/30 transition-all group overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                <Shield className="w-6 h-6" />
               </div>
-              <div className="flex-1 font-medium text-white group-hover:text-primary-blue transition-colors">Privacy Policy</div>
-              <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">Privacy Policy</h3>
+                <p className="text-sm text-muted-foreground">Read how we protect and manage your data.</p>
+              </div>
+              <ExternalLink className="absolute top-6 right-6 w-5 h-5 text-white/20 group-hover:text-blue-400 transition-colors" />
             </Link>
             
-            <Link href={`/apps/${app.slug}/terms-of-service`} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
-              <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
-                <FileText className="w-5 h-5" />
+            <Link href={`/apps/${app.slug}/terms-of-service`} className="flex flex-col gap-4 p-6 rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-purple-500/30 transition-all group overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                <FileText className="w-6 h-6" />
               </div>
-              <div className="flex-1 font-medium text-white group-hover:text-purple-400 transition-colors">Terms of Service</div>
-              <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-purple-400 transition-colors">Terms of Service</h3>
+                <p className="text-sm text-muted-foreground">The rules and guidelines for using the app.</p>
+              </div>
+              <ExternalLink className="absolute top-6 right-6 w-5 h-5 text-white/20 group-hover:text-purple-400 transition-colors" />
             </Link>
             
-            <Link href={`/apps/${app.slug}/faq`} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
-              <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500">
-                <HelpCircle className="w-5 h-5" />
+            <Link href={`/apps/${app.slug}/faq`} className="flex flex-col gap-4 p-6 rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-green-500/30 transition-all group overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-400 group-hover:scale-110 transition-transform">
+                <HelpCircle className="w-6 h-6" />
               </div>
-              <div className="flex-1 font-medium text-white group-hover:text-green-400 transition-colors">FAQ</div>
-              <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors">FAQ</h3>
+                <p className="text-sm text-muted-foreground">Find answers to commonly asked questions.</p>
+              </div>
+              <ExternalLink className="absolute top-6 right-6 w-5 h-5 text-white/20 group-hover:text-green-400 transition-colors" />
             </Link>
 
-            <Link href={`/apps/${app.slug}/support`} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
-              <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-500">
-                <Info className="w-5 h-5" />
+            <Link href={`/apps/${app.slug}/changelog`} className="flex flex-col gap-4 p-6 rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-teal-500/30 transition-all group overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/10 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform">
+                <FileClock className="w-6 h-6" />
               </div>
-              <div className="flex-1 font-medium text-white group-hover:text-orange-400 transition-colors">Support</div>
-              <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">Release Notes</h3>
+                <p className="text-sm text-muted-foreground">Discover what's new in the latest versions.</p>
+              </div>
+              <ExternalLink className="absolute top-6 right-6 w-5 h-5 text-white/20 group-hover:text-teal-400 transition-colors" />
             </Link>
 
-            <Link href={`/apps/${app.slug}/changelog`} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
-              <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-500">
-                <FileClock className="w-5 h-5" />
+            <Link href={`/apps/${app.slug}/support`} className="flex flex-col gap-4 p-6 rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-orange-500/30 transition-all group overflow-hidden relative lg:col-span-2">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="flex items-center gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform shrink-0">
+                  <Shield className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">24/7 Support</h3>
+                  <p className="text-sm text-muted-foreground">Need help? Get in touch with our dedicated support team.</p>
+                </div>
               </div>
-              <div className="flex-1 font-medium text-white group-hover:text-teal-400 transition-colors">Release Notes</div>
-              <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ExternalLink className="absolute top-6 right-6 w-5 h-5 text-white/20 group-hover:text-orange-400 transition-colors" />
             </Link>
+          </div>
 
-            <Link href={`/apps/${app.slug}/delete-account`} className="flex items-center gap-3 p-4 rounded-xl bg-red-500/5 border border-red-500/10 hover:bg-red-500/10 transition-colors group">
-              <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500">
-                <Trash2 className="w-5 h-5" />
+          <div className="mt-8">
+            <Link href={`/apps/${app.slug}/delete-account`} className="flex items-center justify-between p-6 rounded-3xl bg-red-500/5 border border-red-500/10 hover:bg-red-500/10 hover:border-red-500/30 transition-all group max-w-2xl mx-auto">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 group-hover:scale-110 transition-transform">
+                  <Trash2 className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-red-400 mb-1 group-hover:text-red-300 transition-colors">Delete Account</h3>
+                  <p className="text-sm text-red-500/60">Permanently remove your account and data.</p>
+                </div>
               </div>
-              <div className="flex-1 font-medium text-red-400 group-hover:text-red-300 transition-colors">Delete Account</div>
-              <ExternalLink className="w-4 h-4 text-red-500/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ExternalLink className="w-5 h-5 text-red-500/30 group-hover:text-red-400 transition-colors" />
             </Link>
           </div>
         </div>
