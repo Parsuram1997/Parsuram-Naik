@@ -81,4 +81,38 @@ export const aboutData = {
       description: "Began formal journey into computer science and software development.",
     },
   ],
+  techStack: [
+    { name: "Android Studio", icon: "android" },
+    { name: "Kotlin", icon: "kotlin" },
+    { name: "Java", icon: "java" },
+    { name: "Firebase", icon: "firebase" },
+    { name: "React", icon: "react" },
+    { name: "Next.js", icon: "nextjs" },
+    { name: "GitHub", icon: "github" },
+    { name: "VS Code", icon: "vscode" },
+    { name: "Figma", icon: "figma" },
+    { name: "Google Play", icon: "playstore" },
+  ],
+  achievements: [
+    { label: "Apps Built", value: 10, suffix: "+" },
+    { label: "Downloads", value: 50, suffix: "K+" },
+    { label: "Projects", value: 20, suffix: "+" },
+    { label: "Students", value: 100, suffix: "K+" },
+    { label: "Tutorials", value: 500, suffix: "+" }
+  ],
+  workEthics: [
+    { title: "Innovation", icon: "lightbulb" },
+    { title: "Quality", icon: "award" },
+    { title: "Performance", icon: "zap" },
+    { title: "Learning", icon: "book-open" },
+    { title: "Consistency", icon: "repeat" },
+    { title: "User Experience", icon: "users" }
+  ],
+  cta: {
+    heading: "Let's Build Something Amazing Together",
+    buttons: [
+      { text: "View My Projects", variant: "default", href: "#apps" },
+      { text: "Contact Me", variant: "outline", href: "#contact" }
+    ]
+  }
 };

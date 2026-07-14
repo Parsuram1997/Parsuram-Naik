@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 interface NavLinkProps {
@@ -10,18 +8,41 @@ interface NavLinkProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  isActive?: boolean;
 }
 
-export function NavLink({ href, children, className, onClick }: NavLinkProps) {
-  const pathname = usePathname();
-  const isActive = pathname === href;
+export function NavLink({ href, children, className, onClick, isActive }: NavLinkProps) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith("#") || href === "/") {
+      e.preventDefault();
+      
+      const targetId = href === "/" ? "home" : href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const offset = 80;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        });
+
+        history.pushState(null, "", href === "/" ? "#home" : href);
+      }
+      
+      if (onClick) onClick();
+    } else {
+      if (onClick) onClick();
+    }
+  };
 
   return (
-    <Link
+    <a
       href={href}
-      onClick={onClick}
+      onClick={handleClick}
       className={cn(
-        "relative group px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
+        "relative group px-3 py-2 text-sm font-medium transition-colors hover:text-foreground cursor-pointer",
         isActive ? "text-foreground" : "text-muted-foreground",
         className
       )}
@@ -41,6 +62,6 @@ export function NavLink({ href, children, className, onClick }: NavLinkProps) {
           transition={{ duration: 0.3 }}
         />
       )}
-    </Link>
+    </a>
   );
 }

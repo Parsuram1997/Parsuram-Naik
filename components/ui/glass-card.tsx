@@ -10,7 +10,9 @@ export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
   ({ className, animated = true, children, ...props }, ref) => {
-    const Component = animated ? motion.div : "div";
+    // We cast to any here to satisfy both standard div and motion.div props
+    // without conflicting on React 19 ReactNode vs framer motion children types
+    const Component: any = animated ? motion.div : "div";
     
     return (
       <Component

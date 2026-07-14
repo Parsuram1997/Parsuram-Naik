@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { MobileMenu } from "./mobile-menu";
 import { cn } from "@/lib/utils";
 import { Zap } from "lucide-react";
+import { useConnect } from "@/components/providers/connect-provider";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -29,6 +30,7 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
+  const { openConnect } = useConnect();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20);
@@ -44,10 +46,10 @@ export function Navbar() {
           }
         });
       },
-      { rootMargin: "-20% 0px -80% 0px" }
+      { rootMargin: "-20% 0px -80% 0px" } // trigger when section is roughly in view
     );
 
-    const sections = navLinks.map(link => link.href).filter(href => href.startsWith("#"));
+    const sections = navLinks.map(link => link.href === "/" ? "#home" : link.href);
     sections.forEach((href) => {
       const element = document.querySelector(href);
       if (element) observer.observe(element);
@@ -56,9 +58,40 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  // Handle URL hash on initial load
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          const offset = 80;
+          const targetPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: targetPosition, behavior: "smooth" });
+        }, 100);
+      }
+    } else {
+      setActiveSection("#home");
+    }
+  }, []);
+
   const scrollToContact = () => {
-    // Simplified scrolling for now
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    const targetElement = document.getElementById("contact");
+    if (targetElement) {
+      const offset = 80;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: targetPosition, behavior: "smooth" });
+      history.pushState(null, "", "#contact");
+    }
+  };
+
+  const scrollToHome = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const targetElement = document.getElementById("home");
+    if (targetElement) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.pushState(null, "", "#home");
+    }
   };
 
   return (
@@ -78,7 +111,7 @@ export function Navbar() {
           <div className="flex items-center justify-between">
             
             {/* LEFT: Logo */}
-            <Link href="/" className="group flex items-center h-full">
+            <a href="/" onClick={scrollToHome} className="group flex items-center h-full">
               <motion.div 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -89,27 +122,29 @@ export function Navbar() {
                 </div>
                 <span>PARSU <span className="text-primary-blue">TECH</span></span>
               </motion.div>
-            </Link>
+            </a>
 
             {/* CENTER: Navigation Links (Desktop) */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2 h-full">
-              {navLinks.map((link) => (
-                <NavLink 
-                  key={link.name} 
-                  href={link.href}
-                  // Override isActive logic if we have an activeSection, else default to NavLink's path matching
-                  className={cn(activeSection === link.href && "text-foreground")}
-                >
-                  {link.name}
-                </NavLink>
-              ))}
+              {navLinks.map((link) => {
+                const linkId = link.href === "/" ? "#home" : link.href;
+                return (
+                  <NavLink 
+                    key={link.name} 
+                    href={link.href}
+                    isActive={activeSection === linkId}
+                  >
+                    {link.name}
+                  </NavLink>
+                );
+              })}
             </nav>
 
             {/* RIGHT: Actions */}
             <div className="hidden lg:flex items-center gap-3">
               <SearchButton />
               <ThemeToggle />
-              <Button className="rounded-full ml-2" onClick={scrollToContact}>
+              <Button className="rounded-full ml-2" onClick={openConnect}>
                 Let&apos;s Connect
               </Button>
             </div>

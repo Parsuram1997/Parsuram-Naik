@@ -71,22 +71,25 @@ export function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
 
           {/* Links */}
           <div className="flex flex-col gap-4 mb-8">
-            {navLinks.map((link, index) => (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 20 }}
-                transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
-              >
-                <NavLink
-                  href={link.href}
-                  onClick={onClose}
-                  className="block text-xl font-semibold py-2"
+            {navLinks.map((link, index) => {
+              const linkId = link.href === "/" ? "#home" : link.href;
+              return (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 20 }}
+                  transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
                 >
-                  {link.name}
-                </NavLink>
-              </motion.div>
-            ))}
+                  <NavLink
+                    href={link.href}
+                    onClick={onClose}
+                    className="block text-xl font-semibold py-2"
+                  >
+                    {link.name}
+                  </NavLink>
+                </motion.div>
+              );
+            })}
           </div>
 
           <div className="mt-auto pt-8 border-t border-white/10">

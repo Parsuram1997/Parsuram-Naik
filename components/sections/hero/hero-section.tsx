@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, Variants } from "framer-motion";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -12,7 +12,7 @@ import { FaYoutube, FaInstagram, FaFacebookF, FaGithub, FaLinkedinIn } from "rea
 import { Mail, ArrowRight, ChevronDown, Download } from "lucide-react";
 
 // Stagger variant for the left content
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -23,7 +23,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
@@ -54,7 +54,8 @@ export function HeroSection() {
 
   return (
     <section 
-      className="relative min-h-[100dvh] pt-[80px] pb-16 overflow-hidden flex flex-col justify-center"
+      id="home"
+      className="relative min-h-[100dvh] pt-[80px] pb-32 lg:pb-24 overflow-hidden flex flex-col justify-center"
       onMouseMove={handleMouseMove}
     >
       {/* --- Premium Background --- */}
@@ -155,15 +156,18 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4 w-full sm:w-auto mb-12">
-              <Button size="lg" className="rounded-full w-full sm:w-auto group">
+              <Button size="lg" className="rounded-full w-full sm:w-auto group" onClick={() => {
+                document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
+                history.pushState(null, '', '#apps');
+              }}>
                 Explore My Apps
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto hover:bg-foreground hover:text-background transition-colors group">
+              <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto hover:bg-foreground hover:text-background transition-colors group" onClick={() => window.open('https://youtube.com', '_blank')}>
                 <FaYoutube className="mr-2 h-5 w-5 text-red-500 group-hover:text-background transition-colors" />
                 Visit YouTube
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto hover:bg-foreground hover:text-background transition-colors group">
+              <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto hover:bg-foreground hover:text-background transition-colors group" onClick={() => window.open('/resume.pdf', '_blank')}>
                 <Download className="mr-2 h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
                 Download Resume
               </Button>
