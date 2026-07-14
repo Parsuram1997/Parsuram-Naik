@@ -53,7 +53,7 @@ export function AppsSection() {
       {/* Background Decor */}
       <div className="absolute top-[10%] right-[-5%] w-[50%] h-[50%] bg-primary-blue/5 rounded-full blur-[150px] pointer-events-none -z-10" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-green/5 rounded-full blur-[150px] pointer-events-none -z-10" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 pointer-events-none mix-blend-overlay -z-10" />
+      <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay -z-10" style={{ backgroundImage: "url('/noise.png')" }} />
 
       <Container className="max-w-[1200px]">
         {/* Header */}
