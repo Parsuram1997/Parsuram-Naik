@@ -11,6 +11,7 @@ import { HeroStats } from "./hero-stats";
 
 import { FaYoutube, FaInstagram, FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { Mail, ArrowRight, ChevronDown, Download } from "lucide-react";
+import { useResumeModal } from "@/components/providers/resume-provider";
 
 // Stagger variant for the left content
 const containerVariants: Variants = {
@@ -26,10 +27,11 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 export function HeroSection() {
+  const { openResumeModal } = useResumeModal();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
@@ -145,7 +147,7 @@ export function HeroSection() {
                 <FaYoutube className="mr-2 h-5 w-5 text-red-500 group-hover:text-background transition-colors" />
                 Visit YouTube
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto hover:bg-foreground hover:text-background transition-colors group" onClick={() => window.open('/resume.pdf', '_blank')}>
+              <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto hover:bg-foreground hover:text-background transition-colors group cursor-pointer" onClick={openResumeModal}>
                 <Download className="mr-2 h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
                 Download Resume
               </Button>

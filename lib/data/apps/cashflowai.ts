@@ -4,7 +4,7 @@ export const cashflowai: AppData = {
   id: "cashflowai",
   slug: "cashflowai",
   name: "CashFlowAI",
-  icon: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=256&h=256",
+  icon: "/cashflowai.png",
   description: "Your intelligent personal finance manager. Track expenses, analyze spending patterns with AI, and achieve your financial goals effortlessly.",
   features: [
     "AI-powered expense categorization",
@@ -27,16 +27,13 @@ export const cashflowai: AppData = {
   supportEmail: "support@parsuramnaik.in",
   
   screenshots: [
-    { url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80", alt: "Analytics Dashboard" },
-    { url: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80", alt: "Budget Tracking" },
-    { url: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80", alt: "Expense Insights" },
-    { url: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80", alt: "Financial Goals" },
-    { url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80", alt: "Monthly Reports" },
-    { url: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80", alt: "Cashflow Analysis" },
-    { url: "https://images.unsplash.com/photo-1593642532842-98d0fd5ebc1a?auto=format&fit=crop&w=600&q=80", alt: "Transaction History" },
-    { url: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&w=600&q=80", alt: "Category Management" },
-    { url: "https://images.unsplash.com/photo-1533022139390-e31c488d69e2?auto=format&fit=crop&w=600&q=80", alt: "Smart Alerts" },
-    { url: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80", alt: "Secure Cloud Sync" }
+    { url: "/CashflowAi_Screenshot_1.jpeg", alt: "Register Screen - Start your money story" },
+    { url: "/CashflowAi_Screenshot_2.jpeg", alt: "Login Screen - Welcome back" },
+    { url: "/CashflowAi_Screenshot_3.jpeg", alt: "Dashboard - Manage your money all in one place" },
+    { url: "/CashflowAi_Screenshot_4.jpeg", alt: "Profile Screen - Your profile, your way" },
+    { url: "/CashflowAi_Screenshot_5.jpeg", alt: "CashFlowAI Screen 5" },
+    { url: "/CashflowAi_Screenshot_6.jpeg", alt: "CashFlowAI Screen 6" },
+    { url: "/CashflowAi_Screenshot_7.jpeg", alt: "CashFlowAI Screen 7" }
   ],
   
   privacyPolicy: {

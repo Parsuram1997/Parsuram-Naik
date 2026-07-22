@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowRight, FileText, Briefcase, Sparkles, Code } from "lucide-react";
+import { useResumeModal } from "@/components/providers/resume-provider";
 
 export function ResumeCTA() {
+  const { openResumeModal } = useResumeModal();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -33,7 +36,10 @@ export function ResumeCTA() {
           </motion.div>
           
           {/* Animated Icon Badge */}
-          <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-br from-primary-blue/20 via-primary-green/15 to-purple-500/20 border border-primary-blue/40 flex items-center justify-center mb-6 text-primary-blue shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+          <div 
+            onClick={openResumeModal}
+            className="w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-br from-primary-blue/20 via-primary-green/15 to-purple-500/20 border border-primary-blue/40 flex items-center justify-center mb-6 text-primary-blue shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 cursor-pointer"
+          >
             <FileText className="w-9 h-9 sm:w-10 sm:h-10 text-primary-blue" />
           </div>
           
@@ -47,17 +53,24 @@ export function ResumeCTA() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center mb-10">
-            <Button size="lg" className="rounded-full bg-gradient-to-r from-primary-blue to-primary-green text-white border-0 font-bold px-8 py-6 shadow-md hover:shadow-xl group/btn w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base">
+            <Button 
+              size="lg" 
+              onClick={openResumeModal}
+              className="rounded-full bg-gradient-to-r from-primary-blue to-primary-green text-white border-0 font-bold px-8 py-6 shadow-md hover:shadow-xl group/btn w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+            >
               <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:-translate-y-1 transition-transform" />
               <span>Download Resume</span>
-              <span className="px-2 py-0.5 bg-black/25 rounded-md text-[10px] uppercase tracking-wider font-extrabold">PDF</span>
+              <span className="px-2 py-0.5 bg-black/25 rounded-md text-[10px] uppercase tracking-wider font-extrabold">v3.2</span>
             </Button>
             
             <Button 
               size="lg" 
               variant="outline" 
-              className="rounded-full font-bold px-8 py-6 border-white/20 dark:border-white/20 border-slate-300 hover:bg-white/10 text-foreground group/btn2 w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="rounded-full font-bold px-8 py-6 border-white/20 dark:border-white/20 border-slate-300 hover:bg-white/10 text-foreground group/btn2 w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+              onClick={() => {
+                const el = document.getElementById("apps") || document.getElementById("websites");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               <span>Explore Projects</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn2:translate-x-1 transition-transform" />

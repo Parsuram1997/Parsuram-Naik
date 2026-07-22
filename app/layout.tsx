@@ -101,6 +101,11 @@ import { Footer } from "@/components/layout/footer/footer";
 import { SearchModal } from "@/components/search/SearchModal";
 import { ConnectModal } from "@/components/connect/ConnectModal";
 
+import { ResumeProvider } from "@/components/providers/resume-provider";
+import { ResumeModal } from "@/components/resume/resume-modal";
+import { PdfPreviewModal } from "@/components/resume/pdf-preview-modal";
+import { ShareModal } from "@/components/resume/share-modal";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -127,15 +132,20 @@ export default function RootLayout({
         >
           <ConnectProvider>
             <SearchProvider>
-              <SmoothScrollProvider>
-                <ScrollProgress />
-                <Navbar />
-                {children}
-                <Footer />
-                <BackToTop />
-                <SearchModal />
-                <ConnectModal />
-              </SmoothScrollProvider>
+              <ResumeProvider>
+                <SmoothScrollProvider>
+                  <ScrollProgress />
+                  <Navbar />
+                  {children}
+                  <Footer />
+                  <BackToTop />
+                  <SearchModal />
+                  <ConnectModal />
+                  <ResumeModal />
+                  <PdfPreviewModal />
+                  <ShareModal />
+                </SmoothScrollProvider>
+              </ResumeProvider>
             </SearchProvider>
           </ConnectProvider>
         </ThemeProvider>
