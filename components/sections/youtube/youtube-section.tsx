@@ -15,12 +15,12 @@ export function YouTubeSection() {
   const regularVideos = videosData.filter(v => !v.featured);
 
   return (
-    <section id="youtube" className="relative py-24 md:py-32 overflow-hidden bg-black/20 border-y border-white/5">
+    <section id="youtube" className="relative py-24 md:py-32 overflow-hidden dark:bg-black/20 bg-slate-50 border-y dark:border-white/5 border-slate-200">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,0,0.03)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] bg-red-500/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
-      <Container className="max-w-[1200px]">
+      <Container>
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[700px] mx-auto mb-20">
           <motion.div

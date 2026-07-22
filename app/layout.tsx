@@ -43,8 +43,14 @@ export const metadata: Metadata = {
   publisher: "Parsuram Naik",
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/parsuram.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: ["/parsuram.png"],
+    apple: [
+      { url: "/parsuram.png" },
+    ],
   },
   openGraph: {
     type: "website",
@@ -103,6 +109,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
+        <link rel="icon" href="/parsuram.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/parsuram.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/parsuram.png" />
         <Script
           id="structured-data"
           type="application/ld+json"

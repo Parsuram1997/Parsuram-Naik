@@ -14,7 +14,7 @@ export function ChannelCard({ channel }: { channel: ChannelData }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="max-w-5xl mx-auto mb-24"
+      className="w-full mb-24"
     >
       <GlassCard className="overflow-hidden p-0 border-white/10 shadow-elevation">
         {/* Banner Area */}
@@ -28,8 +28,8 @@ export function ChannelCard({ channel }: { channel: ChannelData }) {
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-end">
             
             {/* Avatar */}
-            <div className="w-32 h-32 rounded-full border-4 border-background overflow-hidden relative z-10 shadow-2xl shrink-0">
-              <img src={channel.avatarUrl} alt={channel.name} className="w-full h-full object-cover" />
+            <div className="w-32 h-32 rounded-full border-4 border-background overflow-hidden relative z-10 shadow-2xl shrink-0 bg-muted/60 pt-2 flex items-end justify-center">
+              <img src={channel.avatarUrl} alt={channel.name} className="w-full h-full object-contain object-bottom scale-105" />
             </div>
 
             {/* Info & Buttons */}
@@ -41,15 +41,15 @@ export function ChannelCard({ channel }: { channel: ChannelData }) {
 
               <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                 <Button className="rounded-full bg-red-600 hover:bg-red-700 text-white border-0 group w-full sm:w-auto" asChild>
-                  <a href={channel.youtubeUrl} target="_blank" rel="noopener noreferrer">
-                    <FiYoutube className="w-4 h-4 mr-2" />
-                    Subscribe
+                  <a href={channel.youtubeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
+                    <FiYoutube className="w-4 h-4 shrink-0" />
+                    <span>Subscribe</span>
                   </a>
                 </Button>
                 <Button variant="outline" className="rounded-full group w-full sm:w-auto" asChild>
-                  <a href={channel.youtubeUrl} target="_blank" rel="noopener noreferrer">
-                    Visit Channel
-                    <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <a href={channel.youtubeUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
+                    <span>Visit Channel</span>
+                    <ExternalLink className="w-4 h-4 shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>
                 </Button>
               </div>

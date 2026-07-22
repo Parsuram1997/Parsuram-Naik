@@ -13,7 +13,7 @@ export function YouTubeCTA() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="max-w-5xl mx-auto"
+      className="w-full"
     >
       <GlassCard className="relative overflow-hidden p-8 md:p-16 border-red-500/20 group text-center">
         <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-transparent to-primary-blue/10 opacity-50" />
@@ -28,15 +28,15 @@ export function YouTubeCTA() {
           
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <Button size="lg" className="rounded-full bg-red-600 hover:bg-red-700 text-white border-0 group/btn w-full sm:w-auto" asChild>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                <FiYoutube className="w-5 h-5 mr-2 group-hover/btn:scale-110 transition-transform" />
-                Subscribe Now
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
+                <FiYoutube className="w-5 h-5 shrink-0 group-hover/btn:scale-110 transition-transform" />
+                <span>Subscribe Now</span>
               </a>
             </Button>
             <Button size="lg" variant="outline" className="rounded-full group/btn2 w-full sm:w-auto" asChild>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                <PlayCircle className="w-5 h-5 mr-2" />
-                Watch Latest Video
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
+                <PlayCircle className="w-5 h-5 shrink-0" />
+                <span>Watch Latest Video</span>
               </a>
             </Button>
           </div>

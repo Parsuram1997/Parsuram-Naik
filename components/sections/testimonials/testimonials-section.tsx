@@ -14,11 +14,11 @@ export function TestimonialsSection() {
   const otherTestimonials = testimonialsData.filter(t => !t.featured);
 
   return (
-    <section id="testimonials" className="relative py-24 md:py-32 overflow-hidden bg-black/40 border-t border-white/5">
+    <section id="testimonials" className="relative py-24 md:py-32 overflow-hidden dark:bg-black/40 bg-slate-100/70 border-t dark:border-white/5 border-slate-200">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(var(--primary-green),0.03)_0%,transparent_70%)] pointer-events-none" />
       
-      <Container className="max-w-[1200px] relative z-10">
+      <Container className="relative z-10">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[700px] mx-auto mb-16">

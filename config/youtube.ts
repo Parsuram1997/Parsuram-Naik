@@ -46,7 +46,7 @@ export const channelData: ChannelData = {
   name: "Parsuram Naik",
   description: "I create educational content covering Android development, AI tools, web development, and practical technology tutorials.",
   bannerUrl: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop",
-  avatarUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=200&auto=format&fit=crop",
+  avatarUrl: "/parsuram.png",
   youtubeUrl: "https://youtube.com",
   stats: {
     subscribers: "10K+",

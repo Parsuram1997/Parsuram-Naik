@@ -34,11 +34,11 @@ export function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 md:py-32 overflow-hidden border-t border-white/5">
+    <section id="faq" className="relative py-24 md:py-32 overflow-hidden border-t dark:border-white/5 border-slate-200">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(var(--primary-blue),0.03)_0%,transparent_70%)] pointer-events-none" />
       
-      <Container className="max-w-[900px] relative z-10">
+      <Container className="relative z-10">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-12">

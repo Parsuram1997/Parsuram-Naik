@@ -2,22 +2,22 @@
 
 :root {
   /* Colors - Light Theme */
-  --background: #ffffff;
-  --foreground: #0B1120;
+  --background: #FAFAFC;
+  --foreground: #0F172A;
   
   --primary-blue: #2563EB;
-  --primary-green: #10B981;
+  --primary-green: #059669;
   
-  --muted: #F3F4F6;
-  --muted-foreground: #6B7280;
+  --muted: #F1F5F9;
+  --muted-foreground: #475569;
   
-  --border: #E5E7EB;
+  --border: #E2E8F0;
   
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(15, 23, 42, 0.12);
   
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
-  --shadow-elevation: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-elevation: 0 10px 30px rgba(0, 0, 0, 0.1);
   
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -38,8 +38,8 @@
   
   --border: #1F2937;
   
-  --glass-bg: rgba(11, 17, 32, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(11, 17, 32, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.1);
   
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
   --shadow-elevation: 0 10px 40px rgba(0, 0, 0, 0.6);

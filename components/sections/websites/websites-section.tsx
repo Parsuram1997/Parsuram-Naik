@@ -108,7 +108,7 @@ export function WebsitesSection() {
       <div className="absolute top-[20%] left-[-10%] w-[40%] h-[40%] bg-primary-green/5 rounded-full blur-[150px] pointer-events-none -z-10" />
       <div className="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] bg-primary-blue/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
-      <Container className="max-w-[1300px]">
+      <Container>
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[700px] mx-auto mb-12 lg:mb-16">
           <motion.div

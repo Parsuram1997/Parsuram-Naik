@@ -42,10 +42,10 @@ export function HeroIllustration({ mouseX, mouseY }: HeroIllustrationProps) {
         {/* Animated Gradient Ring inside the portrait frame */}
         <div className="absolute inset-0 bg-gradient-to-tr from-primary-blue via-primary-green to-primary-blue bg-[length:200%_auto] opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
         
-        {/* Cutout Photo Placeholder */}
-        <div className="absolute bottom-0 w-[92%] h-[92%] bg-muted/80 rounded-full overflow-hidden flex items-end justify-center backdrop-blur-xl border border-white/10 shadow-[inset_0_0_20px_rgba(16,185,129,0.2)] transition-transform duration-500 group-hover:scale-105">
-           <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop')] bg-cover bg-top mix-blend-luminosity opacity-80 group-hover:mix-blend-normal transition-all duration-500" />
-           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+        {/* Cutout Photo */}
+        <div className="absolute bottom-0 w-[96%] h-[96%] bg-muted/80 rounded-full overflow-hidden flex items-end justify-center backdrop-blur-xl border border-white/10 shadow-[inset_0_0_20px_rgba(16,185,129,0.2)] transition-transform duration-500 group-hover:scale-105 pt-2">
+           <img src="/parsuram.png" alt="Parsuram Naik" className="w-full h-full object-contain object-bottom group-hover:scale-105 transition-all duration-500" />
+           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
         </div>
       </motion.div>
 

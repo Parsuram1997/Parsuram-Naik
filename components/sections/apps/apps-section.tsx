@@ -134,7 +134,7 @@ export function AppsSection() {
       <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-green/5 rounded-full blur-[150px] pointer-events-none -z-10" />
       <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay -z-10" style={{ backgroundImage: "url('/noise.png')" }} />
 
-      <Container className="max-w-[1300px]">
+      <Container>
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[700px] mx-auto mb-12 lg:mb-16">
           <motion.div

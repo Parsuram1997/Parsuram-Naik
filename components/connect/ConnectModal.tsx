@@ -58,8 +58,8 @@ export function ConnectModal() {
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary-blue/10 to-primary-green/10 pointer-events-none" />
               
               <div className="relative z-10 flex items-start gap-4 sm:gap-6">
-                <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary-blue to-primary-green text-white shadow-lg shrink-0">
-                  <Zap className="w-6 h-6 sm:w-7 sm:h-7 fill-white" />
+                <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary-blue to-primary-green p-0.5 shadow-lg shrink-0 overflow-hidden border border-white/20">
+                  <img src="/parsuram.png" alt="Parsuram Naik" className="w-full h-full object-cover object-top rounded-[14px]" />
                 </div>
                 <div>
                   <h2 id="connect-modal-title" className="text-2xl sm:text-3xl font-bold font-heading text-white mb-2 tracking-tight">

@@ -107,11 +107,11 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-40 py-4 h-[76px] transition-colors duration-150 ease-out",
           isScrolled 
-            ? "glass shadow-soft border-b border-white/10 bg-background/80 backdrop-blur-xl" 
+            ? "glass shadow-soft border-b dark:border-white/10 border-slate-200 bg-background/80 backdrop-blur-xl" 
             : "bg-transparent border-transparent shadow-none"
         )}
       >
-        <Container className="max-w-[1400px]">
+        <Container>
           <div className="flex items-center justify-between">
             
             {/* LEFT: Logo */}
@@ -121,8 +121,8 @@ export function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-3 font-heading font-bold text-2xl tracking-tight transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(37,99,235,0.5)]"
               >
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-blue to-primary-green text-white shadow-lg">
-                  <Zap className="w-5 h-5 fill-white" />
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-blue to-primary-green p-0.5 shadow-lg overflow-hidden border border-white/20">
+                  <img src="/parsuram.png" alt="Parsuram Naik" className="w-full h-full object-cover object-top rounded-[10px]" />
                 </div>
                 <span>PARSURAM <span className="text-primary-blue">NAIK</span></span>
               </motion.div>

@@ -40,11 +40,11 @@ export function AcademySection() {
   const featuredCourse = coursesData.find(c => c.featured);
 
   return (
-    <section id="courses" className="relative py-24 md:py-32 overflow-hidden border-y border-white/5">
+    <section id="courses" className="relative py-24 md:py-32 overflow-hidden border-y dark:border-white/5 border-slate-200">
       {/* Background Decor */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(var(--primary-blue),0.05)_0%,transparent_70%)] pointer-events-none" />
       
-      <Container className="max-w-[1200px]">
+      <Container>
         
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[700px] mx-auto mb-20">
@@ -147,16 +147,26 @@ export function AcademySection() {
         </div>
 
         {/* Roadmap & Certificate */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-16">
           <div>
-            <div className="text-center lg:text-left mb-12">
-              <h3 className="text-3xl font-heading font-bold mb-4">Learning Roadmap</h3>
-              <p className="text-muted-foreground">A structured path from beginner to professional.</p>
+            <div className="mb-8">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary-green/30 text-xs font-semibold text-primary-green tracking-wider uppercase mb-3">
+                📍 Structured Path
+              </span>
+              <h3 className="text-3xl font-heading font-bold text-foreground mb-2">Learning <span className="text-gradient">Roadmap</span></h3>
+              <p className="text-muted-foreground text-sm">Step-by-step progress guide from absolute beginner to industry expert.</p>
             </div>
             <CourseRoadmap />
           </div>
           
-          <div className="flex flex-col justify-center">
+          <div>
+            <div className="mb-8">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary-blue/30 text-xs font-semibold text-primary-blue tracking-wider uppercase mb-3">
+                📜 Industry Recognition
+              </span>
+              <h3 className="text-3xl font-heading font-bold text-foreground mb-2">Verifiable <span className="text-gradient">Certificates</span></h3>
+              <p className="text-muted-foreground text-sm">Earn shareable, verified credentials upon completing every premium course.</p>
+            </div>
             <CertificatePreview />
           </div>
         </div>

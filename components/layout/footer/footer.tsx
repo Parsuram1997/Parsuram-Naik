@@ -18,7 +18,7 @@ export function Footer() {
       <FooterCTA />
 
       {/* Main Footer */}
-      <div className="relative pt-20 pb-10 bg-background border-t border-white/5 overflow-hidden">
+      <div className="relative pt-20 pb-10 bg-background border-t dark:border-white/5 border-slate-200 overflow-hidden">
         
         {/* Background Effects */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
@@ -30,8 +30,8 @@ export function Footer() {
             {/* Column 1: Brand */}
             <div className="flex flex-col">
               <a href="/" className="group flex items-center gap-3 font-heading font-bold text-2xl tracking-tight mb-6">
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-blue to-primary-green text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]">
-                  <Zap className="w-5 h-5 fill-white" />
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-blue to-primary-green p-0.5 shadow-[0_0_15px_rgba(37,99,235,0.5)] overflow-hidden border border-white/20">
+                  <img src="/parsuram.png" alt="Parsuram Naik" className="w-full h-full object-cover object-top rounded-[10px]" />
                 </div>
                 <span>PARSURAM <span className="text-primary-blue">NAIK</span></span>
               </a>

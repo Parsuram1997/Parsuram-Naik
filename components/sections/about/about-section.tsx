@@ -19,7 +19,7 @@ export function AboutSection() {
       <div className="absolute top-[20%] left-[-10%] w-[40%] h-[40%] bg-primary-blue/5 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute bottom-[10%] right-[-10%] w-[30%] h-[30%] bg-primary-green/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
-      <Container className="max-w-[1200px]">
+      <Container>
         {/* Removed items-start so columns stretch to equal height, enabling sticky */}
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
 
@@ -40,10 +40,9 @@ export function AboutSection() {
                 <div className="absolute inset-[-10%] bg-gradient-to-tr from-primary-blue via-primary-green to-primary-blue bg-[length:200%_auto] animate-gradient rounded-[2rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-700" />
                 
                 {/* Photo Container */}
-                <div className="relative w-full h-full rounded-[2rem] border border-white/10 glass overflow-hidden flex items-end justify-center shadow-elevation">
-                  {/* Temp Placeholder */}
-                  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=600&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity opacity-70 group-hover:mix-blend-normal group-hover:scale-105 transition-all duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                <div className="relative w-full h-full rounded-[2rem] border border-white/10 glass overflow-hidden flex items-end justify-center shadow-elevation pt-3">
+                  <img src="/parsuram.png" alt="Parsuram Naik" className="w-full h-full object-contain object-bottom group-hover:scale-105 transition-all duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent pointer-events-none" />
                 </div>
 
                 {/* Experience Badge */}

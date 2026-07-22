@@ -10,6 +10,7 @@ import { GoalRoadmap } from "./goal-roadmap";
 import { ValuesGrid } from "./values-grid";
 import { ResumeCTA } from "./resume-cta";
 import { GlassCard } from "@/components/ui/glass-card";
+import { Target, ShieldCheck } from "lucide-react";
 
 export function JourneySection() {
   return (
@@ -18,7 +19,7 @@ export function JourneySection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(var(--primary-green),0.05)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-[10%] left-[-10%] w-[50%] h-[50%] bg-primary-blue/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
-      <Container className="max-w-[1200px]">
+      <Container>
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[700px] mx-auto mb-20">
           <motion.div
@@ -94,19 +95,25 @@ export function JourneySection() {
         </div>
 
         {/* Section 4: Goals & Section 5: Values */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-32">
           <div>
-            <div className="text-center lg:text-left mb-12">
-              <h3 className="text-3xl font-heading font-bold mb-4">Professional Goals</h3>
-              <p className="text-muted-foreground">My roadmap for the future.</p>
+            <div className="mb-8">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary-blue/30 text-xs font-semibold text-primary-blue tracking-wider uppercase mb-3">
+                <Target className="w-3.5 h-3.5" /> Future Vision
+              </span>
+              <h3 className="text-3xl font-heading font-bold text-foreground mb-2">Professional <span className="text-gradient">Goals</span></h3>
+              <p className="text-muted-foreground text-sm">Strategic roadmap guiding my technical evolution and impact.</p>
             </div>
             <GoalRoadmap goals={goalsData} />
           </div>
           
           <div>
-            <div className="text-center lg:text-left mb-12">
-              <h3 className="text-3xl font-heading font-bold mb-4">Core Values</h3>
-              <p className="text-muted-foreground">The principles that guide my work.</p>
+            <div className="mb-8">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary-green/30 text-xs font-semibold text-primary-green tracking-wider uppercase mb-3">
+                <ShieldCheck className="w-3.5 h-3.5" /> Philosophy
+              </span>
+              <h3 className="text-3xl font-heading font-bold text-foreground mb-2">Core <span className="text-gradient">Values</span></h3>
+              <p className="text-muted-foreground text-sm">Non-negotiable principles that drive my code and creations.</p>
             </div>
             <ValuesGrid values={valuesData} />
           </div>

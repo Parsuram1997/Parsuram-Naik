@@ -15,13 +15,13 @@ export function FeaturedReview({ testimonial }: { testimonial: Testimonial }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="mb-20 max-w-5xl mx-auto relative"
+      className="mb-20 relative"
     >
-      <div className="absolute -top-10 -left-10 text-primary-blue/20">
-        <Quote className="w-32 h-32 rotate-180" />
-      </div>
-
       <GlassCard className="p-8 md:p-12 relative overflow-hidden border-primary-green/30 shadow-[0_0_50px_rgba(0,255,170,0.1)]">
+        {/* Decorative Watermark Quote Icon inside Card */}
+        <div className="absolute top-4 right-4 md:top-6 md:right-8 text-primary-blue/10 pointer-events-none z-0">
+          <Quote className="w-24 h-24 md:w-36 md:h-36 rotate-180" />
+        </div>
         {/* Glow */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary-green/10 rounded-full blur-[100px] pointer-events-none" />
 

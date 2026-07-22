@@ -22,11 +22,11 @@ export function BlogSection() {
   });
 
   return (
-    <section id="blog" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="blog" className="relative py-24 md:py-32 overflow-hidden dark:bg-black/40 bg-slate-100/70">
       {/* Background Decor */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(var(--primary-green),0.05)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(0,255,170,0.05)_0%,transparent_70%)] pointer-events-none" />
       
-      <Container className="max-w-[1200px] relative z-10">
+      <Container className="relative z-10">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[700px] mx-auto mb-16">
@@ -34,10 +34,10 @@ export function BlogSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 text-xs font-semibold text-primary-green tracking-wider uppercase mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary-green/30 text-xs font-semibold text-primary-green tracking-wider uppercase mb-6"
           >
             <span className="w-2 h-2 rounded-full bg-primary-green animate-pulse" />
-            📚 Blog & Resources
+            📚 Knowledge & Resources Hub
           </motion.div>
           
           <motion.h2
@@ -48,7 +48,7 @@ export function BlogSection() {
             className="text-3xl md:text-5xl font-heading font-bold mb-6 text-foreground leading-tight"
           >
             Learn. Explore. <br />
-            <GradientText>Build Better.</GradientText>
+            <GradientText>Build Better Systems.</GradientText>
           </motion.h2>
           
           <motion.p
@@ -58,22 +58,22 @@ export function BlogSection() {
             transition={{ delay: 0.2 }}
             className="text-lg text-muted-foreground"
           >
-            Discover practical articles, tutorials, AI prompts, Android tips, programming guides and downloadable resources.
+            Discover practical articles, architecture deep-dives, AI prompts, Android development guides, and downloadable resources.
           </motion.p>
         </div>
 
         {/* Categories Filter */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-16">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-16">
           {blogCategories.map((cat) => (
             <motion.button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+              className={`px-5 py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-300 ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-primary-blue to-primary-green text-white shadow-[0_0_15px_rgba(0,255,170,0.3)]"
-                  : "glass bg-white/5 border border-white/10 text-muted-foreground hover:text-foreground hover:bg-white/10"
+                  ? "bg-gradient-to-r from-primary-blue to-primary-green text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                  : "glass bg-white/5 border border-white/10 dark:border-white/10 border-slate-200 text-muted-foreground hover:text-foreground hover:bg-white/10"
               }`}
             >
               {cat}
@@ -90,8 +90,9 @@ export function BlogSection() {
           
           {/* Main Articles Content (2 Columns on Desktop) */}
           <div className="lg:col-span-2">
-            <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
-              <h3 className="text-2xl font-heading font-bold">Latest Articles</h3>
+            <div className="flex items-center justify-between mb-8 border-b border-white/10 dark:border-white/10 border-slate-200 pb-4">
+              <h3 className="text-2xl font-heading font-bold text-foreground">Latest Articles</h3>
+              <span className="text-xs font-semibold text-muted-foreground">Showing {filteredArticles.length} publications</span>
             </div>
             
             <AnimatePresence mode="popLayout">
@@ -104,7 +105,7 @@ export function BlogSection() {
               ) : (
                 <motion.div 
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                  className="py-12 text-center border border-dashed border-white/10 rounded-2xl"
+                  className="py-16 text-center border border-dashed border-white/10 dark:border-white/10 border-slate-200 rounded-3xl glass"
                 >
                   <p className="text-muted-foreground">No articles found in this category yet.</p>
                 </motion.div>
@@ -112,15 +113,19 @@ export function BlogSection() {
             </AnimatePresence>
           </div>
 
-          {/* Sidebar Content (Resources, Prompts, Tags) */}
-          <div className="space-y-12">
+          {/* Sidebar Content (Resources, Popular Tags) */}
+          <div className="space-y-10">
             
             {/* Free Resources */}
             <div>
-              <h3 className="text-xl font-heading font-bold mb-6 flex items-center gap-2">
-                <span className="w-8 h-px bg-primary-green/50" /> Free Resources
-              </h3>
-              <div className="flex flex-col gap-4">
+              <div className="flex items-center justify-between mb-6 border-b border-white/10 dark:border-white/10 border-slate-200 pb-3">
+                <h3 className="text-xl font-heading font-bold text-foreground flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary-green" /> Free Resources
+                </h3>
+                <span className="text-[10px] font-bold tracking-wider text-primary-green uppercase">DOWNLOADS</span>
+              </div>
+
+              <div className="flex flex-col gap-3.5">
                 {resources.slice(0, 4).map((resource, idx) => (
                   <ResourceCard key={resource.id} resource={resource} index={idx} />
                 ))}
@@ -129,9 +134,13 @@ export function BlogSection() {
 
             {/* Popular Tags */}
             <div>
-              <h3 className="text-xl font-heading font-bold mb-6 flex items-center gap-2">
-                <span className="w-8 h-px bg-primary-blue/50" /> Popular Tags
-              </h3>
+              <div className="flex items-center justify-between mb-6 border-b border-white/10 dark:border-white/10 border-slate-200 pb-3">
+                <h3 className="text-xl font-heading font-bold text-foreground flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary-blue" /> Popular Tags
+                </h3>
+                <span className="text-[10px] font-bold tracking-wider text-primary-blue uppercase">EXPLORE</span>
+              </div>
+
               <div className="flex flex-wrap gap-2">
                 {popularTags.map((tag, idx) => (
                   <motion.a
@@ -140,8 +149,8 @@ export function BlogSection() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.05 }}
-                    className="px-3 py-1.5 rounded bg-white/5 border border-white/10 text-xs text-muted-foreground hover:text-white hover:border-primary-blue/50 hover:bg-primary-blue/10 transition-colors"
+                    transition={{ delay: idx * 0.04 }}
+                    className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 dark:border-white/10 border-slate-200 text-xs font-semibold text-muted-foreground hover:text-primary-blue hover:border-primary-blue/40 hover:bg-primary-blue/10 transition-all duration-300 shadow-sm"
                   >
                     #{tag}
                   </motion.a>
@@ -155,8 +164,11 @@ export function BlogSection() {
         {/* Featured AI Prompts */}
         <div className="mb-32">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-heading font-bold mb-4">Featured AI Prompts</h3>
-            <p className="text-muted-foreground">Copy and paste these prompts to accelerate your workflow.</p>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary-blue/30 text-xs font-semibold text-primary-blue tracking-wider uppercase mb-3">
+              ⚡ Productivity Boosters
+            </span>
+            <h3 className="text-3xl font-heading font-bold text-foreground mb-4">Featured AI Prompts</h3>
+            <p className="text-muted-foreground">Copy and paste these engineered prompts to accelerate your daily workflow.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {prompts.map((prompt, idx) => (
