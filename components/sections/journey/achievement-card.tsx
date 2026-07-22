@@ -9,7 +9,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 function Counter({ from, to, duration = 2 }: { from: number; to: number; duration?: number }) {
   const [count, setCount] = useState(from);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "100px" });
 
   useEffect(() => {
     if (!isInView) return;
@@ -38,10 +38,10 @@ function Counter({ from, to, duration = 2 }: { from: number; to: number; duratio
 export function AchievementCard({ achievement, index }: { achievement: Achievement; index: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "150px" }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
     >
       <GlassCard className="p-6 text-center group hover:border-primary-green/30 transition-colors duration-500 h-full flex flex-col justify-center">
         <div className="text-4xl md:text-5xl mb-4 group-hover:scale-110 transition-transform duration-500">

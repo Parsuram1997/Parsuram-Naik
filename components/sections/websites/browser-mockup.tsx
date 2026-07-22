@@ -10,15 +10,26 @@ interface BrowserMockupProps {
 export function BrowserMockup({ screenshots }: BrowserMockupProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Preload all screenshots immediately on mount
+  useEffect(() => {
+    if (!screenshots || screenshots.length === 0) return;
+    screenshots.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, [screenshots]);
+
   // Auto-slide every 4 seconds
   useEffect(() => {
-    if (screenshots.length <= 1) return;
+    if (!screenshots || screenshots.length <= 1) return;
     
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % screenshots.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [screenshots.length]);
+  }, [screenshots]);
+
+  if (!screenshots || screenshots.length === 0) return null;
 
   return (
     <motion.div 
@@ -39,19 +50,28 @@ export function BrowserMockup({ screenshots }: BrowserMockupProps) {
       </div>
 
       {/* Screen Content */}
-      <div className="relative aspect-[16/10] bg-zinc-900 overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={currentIndex}
-            src={screenshots[currentIndex]}
-            alt={`Screenshot ${currentIndex + 1}`}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-full object-cover object-top"
-            loading="lazy"
-          />
+      <div className="relative aspect-[16/10] bg-gradient-to-b from-slate-800 to-zinc-900 overflow-hidden">
+        {/* Instant Base Screenshot (Never Black) */}
+        <img
+          src={screenshots[0]}
+          alt="Website Screenshot"
+          className="absolute inset-0 w-full h-full object-cover object-top"
+        />
+
+        {/* Animated Slide Transitions for index > 0 */}
+        <AnimatePresence>
+          {currentIndex > 0 && (
+            <motion.img
+              key={currentIndex}
+              src={screenshots[currentIndex]}
+              alt={`Screenshot ${currentIndex + 1}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+          )}
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
       </div>

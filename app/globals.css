@@ -91,6 +91,8 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
   
   .text-gradient {

@@ -21,10 +21,10 @@ interface AppCardProps {
 export function AppCard({ app, index, onNotifyClick }: AppCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "150px" }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
     >
       <GlassCard className="group relative overflow-hidden p-6 md:p-8 lg:p-10 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center lg:items-start h-full border-white/5 hover:border-primary-blue/30 transition-colors duration-500">
         

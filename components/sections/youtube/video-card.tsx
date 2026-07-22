@@ -10,10 +10,10 @@ export function VideoCard({ video, index }: { video: VideoData; index: number })
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "150px" }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
       className={`h-full ${isFeatured ? 'md:col-span-2 lg:col-span-3 mb-8' : ''}`}
     >
       <a href={video.youtubeUrl} target="_blank" rel="noopener noreferrer" className="block h-full group">

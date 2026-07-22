@@ -14,7 +14,7 @@ export const searchData: SearchItemType[] = [
   { id: "contact", title: "Contact", category: "Section", description: "Let's build something amazing together.", href: "#contact", keywords: ["email", "message", "hire"] },
   
   // Apps
-  { id: "cashflow", title: "CashFlowAI", category: "App", description: "Track your income and expenses with AI.", href: "#apps", keywords: ["finance", "money", "tracker", "android"] },
+  { id: "cashflow", title: "CashFlowAI", category: "App", description: "Track your income and expenses with AI.", href: "/apps/cashflowai", keywords: ["finance", "money", "tracker", "android", "cashflow", "app"] },
   { id: "makemypc", title: "MakeMyPC", category: "App", description: "Custom PC Builder mobile application.", href: "#apps", keywords: ["pc", "computer", "build", "hardware"] },
   
   // Websites

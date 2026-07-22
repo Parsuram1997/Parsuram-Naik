@@ -12,7 +12,7 @@ interface AchievementItem {
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "100px" });
   
   // Spring configuration for smooth counting
   const springValue = useSpring(0, {

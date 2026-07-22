@@ -7,28 +7,10 @@ import { Download, Star, ShieldCheck, Activity, Zap, Shield, Smartphone, ArrowRi
 export function AppHeroClient({ app }: { app: AppData }) {
   return (
     <div className="relative w-full overflow-hidden rounded-[2.5rem] bg-black/40 border border-white/10 glass mb-16 p-6 md:p-12">
-      {/* Animated Background Particles */}
+      {/* Background Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[2.5rem]">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary-blue/30 blur-[120px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
-            x: [0, -40, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-[40%] -right-[10%] w-[40%] h-[60%] rounded-full bg-purple-600/20 blur-[100px]"
-        />
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary-blue/20 blur-3xl transform-gpu" />
+        <div className="absolute top-[40%] -right-[10%] w-[40%] h-[60%] rounded-full bg-purple-600/15 blur-3xl transform-gpu" />
       </div>
 
       <div className="relative z-10 flex flex-col xl:flex-row gap-12 items-start justify-between">

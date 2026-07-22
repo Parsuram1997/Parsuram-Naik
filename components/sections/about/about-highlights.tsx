@@ -38,10 +38,10 @@ export function AboutHighlights({ data }: { data: HighlightItem[] }) {
         return (
           <motion.div
             key={item.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true, margin: "150px" }}
+            transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
             className={`group p-5 rounded-2xl glass border transition-all duration-300 hover:-translate-y-1 ${colorClasses.split(' ').filter(c => c.includes('hover')).join(' ')}`}
           >
             <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center transition-transform group-hover:scale-110 ${colorClasses.split(' ').filter(c => !c.includes('hover')).join(' ')}`}>

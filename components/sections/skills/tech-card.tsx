@@ -24,10 +24,10 @@ export function TechCard({ tech, index }: { tech: TechItem; index: number }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+      initial={{ opacity: 0, scale: 0.95, y: 10 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: (index % 10) * 0.05 }}
+      viewport={{ once: true, margin: "150px" }}
+      transition={{ duration: 0.25, delay: (index % 10) * 0.03 }}
       whileHover={{ y: -5 }}
       className="relative group rounded-2xl glass border border-white/10 p-5 overflow-hidden flex flex-col gap-4 shadow-soft hover:shadow-elevation hover:border-primary-green/30 transition-all duration-300"
     >

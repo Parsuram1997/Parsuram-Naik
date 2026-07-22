@@ -8,7 +8,7 @@ import { FaMobileAlt, FaDownload, FaVideo, FaLaptopCode } from "react-icons/fa";
 
 function AnimatedCounter({ from, to, duration = 2, suffix = "" }: { from: number; to: number; duration?: number, suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const inView = useInView(ref, { once: true, margin: "100px" });
   const count = useMotionValue(from);
   const rounded = useTransform(count, (latest) => Math.round(latest));
   const [displayValue, setDisplayValue] = useState<string | number>(from);
@@ -42,10 +42,10 @@ export function HeroStats() {
       {stats.map((stat, index) => (
         <motion.div
           key={index}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true, margin: "150px" }}
+          transition={{ duration: 0.3, delay: index * 0.05 }}
         >
           <GlassCard className="flex items-center gap-4 p-4 md:p-6 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:border-primary-blue/40 transition-all duration-300 bg-background/40 border border-white/5 relative overflow-hidden group">
             {/* Subtle animated border glow on hover */}

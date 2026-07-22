@@ -22,91 +22,50 @@ export function HeroIllustration({ mouseX, mouseY }: HeroIllustrationProps) {
   return (
     <div className="relative w-full h-[500px] lg:h-[700px] flex items-center justify-center pointer-events-none">
       
-      {/* 1. Animated Rings (Layer 1 Parallax) */}
+      {/* 1. Decorative Rings (Layer 1 Parallax) */}
       <motion.div
         style={{ x: layer1X, y: layer1Y }}
         className="absolute z-0 flex items-center justify-center w-full h-full"
       >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border border-primary-blue/10 border-dashed"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-          className="absolute w-[380px] h-[380px] md:w-[550px] md:h-[550px] rounded-full border border-primary-green/10"
-        />
+        <div className="absolute w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full border border-primary-blue/10 border-dashed animate-[spin_60s_linear_infinite]" />
+        <div className="absolute w-[380px] h-[380px] md:w-[550px] md:h-[550px] rounded-full border border-primary-green/10" />
       </motion.div>
 
-      {/* 2. Professional Portrait Placeholder (Layer 1 Parallax + Breathing) */}
+      {/* 2. Professional Portrait Placeholder */}
       <motion.div
         style={{ x: layer1X, y: layer1Y }}
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: [1, 1.02, 1] }}
-        transition={{ 
-          opacity: { duration: 1, ease: "easeOut" },
-          scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-        }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative z-10 w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border border-white/20 shadow-[0_0_50px_rgba(37,99,235,0.4)] bg-background flex items-center justify-center backdrop-blur-md group"
       >
         {/* Animated Gradient Ring inside the portrait frame */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-primary-blue via-primary-green to-primary-blue bg-[length:200%_auto] animate-gradient opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary-blue via-primary-green to-primary-blue bg-[length:200%_auto] opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
         
         {/* Cutout Photo Placeholder */}
         <div className="absolute bottom-0 w-[92%] h-[92%] bg-muted/80 rounded-full overflow-hidden flex items-end justify-center backdrop-blur-xl border border-white/10 shadow-[inset_0_0_20px_rgba(16,185,129,0.2)] transition-transform duration-500 group-hover:scale-105">
-           {/* Temporary generic male avatar placeholder from Unsplash. In a real app, replace with an actual cutout PNG. */}
            <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop')] bg-cover bg-top mix-blend-luminosity opacity-80 group-hover:mix-blend-normal transition-all duration-500" />
            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
         </div>
-
-        {/* Floating particles inside the portrait */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full mix-blend-screen">
-           {[...Array(6)].map((_, i) => (
-             <motion.div
-                key={i}
-                className="absolute w-1.5 h-1.5 rounded-full bg-white/60 blur-[1px]"
-                style={{ top: `${(i * 17) % 80 + 10}%`, left: `${(i * 23 + 13) % 80 + 10}%` }}
-                animate={{ y: [0, -15, 0], opacity: [0, 0.8, 0], scale: [0.8, 1.2, 0.8] }}
-                transition={{ duration: 2 + (i % 3), repeat: Infinity, delay: (i % 2) }}
-             />
-           ))}
-        </div>
       </motion.div>
 
-      {/* 3. Floating Text Chips (Layer 2 Parallax + Floating) */}
+      {/* 3. Floating Text Chips (Layer 2 Parallax) */}
       <motion.div
         style={{ x: layer2X, y: layer2Y }}
         className="absolute w-full h-full z-20 flex items-center justify-center"
       >
-        <motion.div
-          animate={{ y: [-5, 5, -5] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-          className="absolute top-[15%] left-[10%] md:left-[5%] px-4 py-2 rounded-full glass text-xs font-semibold shadow-soft"
-        >
+        <div className="absolute top-[15%] left-[10%] md:left-[5%] px-4 py-2 rounded-full glass text-xs font-semibold shadow-soft">
           🤖 AI Builder
-        </motion.div>
-        <motion.div
-          animate={{ y: [6, -6, 6] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
-          className="absolute top-[20%] right-[10%] md:right-[5%] px-4 py-2 rounded-full glass text-xs font-semibold shadow-soft text-primary-green"
-        >
+        </div>
+        <div className="absolute top-[20%] right-[10%] md:right-[5%] px-4 py-2 rounded-full glass text-xs font-semibold shadow-soft text-primary-green">
           📱 Android Developer
-        </motion.div>
-        <motion.div
-          animate={{ y: [-4, 4, -4] }}
-          transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
-          className="absolute bottom-[20%] left-[15%] md:left-[5%] px-4 py-2 rounded-full glass text-xs font-semibold shadow-soft text-primary-blue"
-        >
+        </div>
+        <div className="absolute bottom-[20%] left-[15%] md:left-[5%] px-4 py-2 rounded-full glass text-xs font-semibold shadow-soft text-primary-blue">
           💻 Web Developer
-        </motion.div>
-        <motion.div
-          animate={{ y: [5, -5, 5] }}
-          transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
-          className="absolute bottom-[15%] right-[10%] md:right-[0%] px-4 py-2 rounded-full glass text-xs font-semibold shadow-soft text-red-500"
-        >
+        </div>
+        <div className="absolute bottom-[15%] right-[10%] md:right-[0%] px-4 py-2 rounded-full glass text-xs font-semibold shadow-soft text-red-500">
           ▶ YouTube Creator
-        </motion.div>
+        </div>
       </motion.div>
 
       {/* 4. Floating Detail Cards (Layer 3 Inverse Parallax + Long Floating) */}
@@ -116,9 +75,9 @@ export function HeroIllustration({ mouseX, mouseY }: HeroIllustrationProps) {
       >
         {/* CashFlowAI */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1, y: [8, -8, 8] }}
-          transition={{ opacity: { duration: 0.8, delay: 0.3 }, scale: { duration: 0.8, delay: 0.3 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="absolute top-[5%] right-[-10%] md:right-[-5%] glass p-3 md:p-4 rounded-xl shadow-elevation flex items-center gap-3 backdrop-blur-xl border-white/20 pointer-events-auto cursor-pointer hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:border-primary-green/40 transition-all duration-300 group"
         >
           <div className="bg-primary-green/20 p-2 md:p-3 rounded-lg text-primary-green group-hover:scale-110 transition-transform">
@@ -132,9 +91,9 @@ export function HeroIllustration({ mouseX, mouseY }: HeroIllustrationProps) {
 
         {/* MakeMyPC */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1, y: [-7, 7, -7] }}
-          transition={{ opacity: { duration: 0.8, delay: 0.5 }, scale: { duration: 0.8, delay: 0.5 }, y: { duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.2 } }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="absolute bottom-[5%] left-[-10%] md:left-[-5%] glass p-3 md:p-4 rounded-xl shadow-elevation flex items-center gap-3 backdrop-blur-xl border-white/20 pointer-events-auto cursor-pointer hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:border-primary-blue/40 transition-all duration-300 group"
         >
           <div className="bg-primary-blue/20 p-2 md:p-3 rounded-lg text-primary-blue group-hover:scale-110 transition-transform">
@@ -148,9 +107,9 @@ export function HeroIllustration({ mouseX, mouseY }: HeroIllustrationProps) {
 
         {/* YouTube */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1, y: [-6, 6, -6] }}
-          transition={{ opacity: { duration: 0.8, delay: 0.7 }, scale: { duration: 0.8, delay: 0.7 }, y: { duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 2 } }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="absolute top-[40%] left-[-15%] md:left-[-10%] glass p-3 rounded-xl shadow-elevation flex items-center gap-3 backdrop-blur-xl border-white/20 pointer-events-auto cursor-pointer hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(239,68,68,0.3)] hover:border-red-500/40 transition-all duration-300 group"
         >
           <div className="bg-red-500/20 p-2 rounded-lg text-red-500 group-hover:scale-110 transition-transform">
@@ -164,9 +123,9 @@ export function HeroIllustration({ mouseX, mouseY }: HeroIllustrationProps) {
 
         {/* AI Projects */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1, y: [6, -6, 6] }}
-          transition={{ opacity: { duration: 0.8, delay: 0.9 }, scale: { duration: 0.8, delay: 0.9 }, y: { duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 2.5 } }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="absolute bottom-[40%] right-[-15%] md:right-[-10%] glass p-3 rounded-xl shadow-elevation flex items-center gap-3 backdrop-blur-xl border-white/20 pointer-events-auto cursor-pointer hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:border-purple-500/40 transition-all duration-300 group"
         >
           <div className="bg-purple-500/20 p-2 rounded-lg text-purple-400 group-hover:scale-110 transition-transform">

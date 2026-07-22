@@ -30,10 +30,10 @@ export function AboutSection() {
               
               {/* Main Portrait */}
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true, margin: "150px" }}
+                transition={{ duration: 0.3 }}
                 className="relative w-full max-w-[400px] aspect-[4/5] mx-auto lg:mx-0 group"
               >
                 {/* Floating Gradient Ring */}
@@ -50,8 +50,8 @@ export function AboutSection() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8, x: -20 }}
                   whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true, margin: "100px" }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
                   className="absolute bottom-10 -left-6 md:-left-12 glass px-6 py-4 rounded-2xl border border-white/20 shadow-elevation backdrop-blur-xl flex items-center gap-4"
                 >
                   <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary-blue to-primary-green">
@@ -65,10 +65,10 @@ export function AboutSection() {
 
               {/* Secondary Visuals / Additional Images */}
               <motion.div 
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true, margin: "100px" }}
+                transition={{ duration: 0.3, delay: 0.1 }}
                 className="w-full max-w-[400px] mx-auto lg:mx-0 grid grid-cols-2 gap-4 hidden md:grid"
               >
                 <div className="relative aspect-square rounded-2xl border border-white/10 overflow-hidden shadow-soft group">
@@ -89,10 +89,10 @@ export function AboutSection() {
           {/* RIGHT: Story & Content */}
           <div className="w-full lg:w-7/12 flex flex-col">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "150px" }}
+              transition={{ duration: 0.3 }}
               className="mb-12"
             >
               <h2 className="text-primary-blue font-bold tracking-wider uppercase text-sm mb-3">

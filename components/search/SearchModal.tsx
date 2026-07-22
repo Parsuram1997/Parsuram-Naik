@@ -8,7 +8,10 @@ import { SearchResults } from "./SearchResults";
 import { searchData, popularSearches, SearchItemType } from "./searchData";
 import { Clock, TrendingUp } from "lucide-react";
 
+import { useRouter } from "next/navigation";
+
 export function SearchModal() {
+  const router = useRouter();
   const { isOpen, closeSearch } = useSearch();
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
@@ -68,29 +71,26 @@ export function SearchModal() {
 
     closeSearch();
 
-    // Smooth scroll navigation
+    // Smooth scroll navigation / Router push
     setTimeout(() => {
       if (targetHref.startsWith("#")) {
-        const id = targetHref.substring(1);
-        const element = document.getElementById(id);
-        if (element) {
-          const offset = 80;
-          const targetPosition = element.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top: targetPosition, behavior: "smooth" });
-          history.pushState(null, "", targetHref);
-        }
-      } else if (targetHref === "/") {
-        const element = document.getElementById("home");
-        if (element) {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          history.pushState(null, "", "#home");
+        if (window.location.pathname === "/") {
+          const id = targetHref.substring(1);
+          const element = document.getElementById(id);
+          if (element) {
+            const offset = 80;
+            const targetPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: targetPosition, behavior: "smooth" });
+            history.pushState(null, "", targetHref);
+          }
         } else {
-           window.scrollTo({ top: 0, behavior: "smooth" });
-           history.pushState(null, "", "/");
+          router.push("/" + targetHref);
         }
+      } else {
+        router.push(targetHref);
       }
     }, 300);
-  }, [recentSearches, closeSearch]);
+  }, [recentSearches, closeSearch, router]);
 
   // Modal keyboard navigation
   useEffect(() => {

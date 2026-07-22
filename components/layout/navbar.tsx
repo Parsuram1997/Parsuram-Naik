@@ -32,9 +32,16 @@ export function Navbar() {
   const { scrollY } = useScroll();
   const { openConnect } = useConnect();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 20);
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 0;
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Track active section using IntersectionObserver
   useEffect(() => {
@@ -96,16 +103,13 @@ export function Navbar() {
 
   return (
     <>
-      <motion.header
+      <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-40 py-4 h-[76px] transition-colors duration-150 ease-out",
           isScrolled 
-            ? "py-3 h-[68px] glass shadow-soft border-b border-white/10 bg-background/60 backdrop-blur-xl" 
-            : "py-5 h-[80px] bg-transparent"
+            ? "glass shadow-soft border-b border-white/10 bg-background/80 backdrop-blur-xl" 
+            : "bg-transparent border-transparent shadow-none"
         )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <Container className="max-w-[1400px]">
           <div className="flex items-center justify-between">
@@ -162,7 +166,7 @@ export function Navbar() {
 
           </div>
         </Container>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu Drawer */}
       <AnimatePresence>

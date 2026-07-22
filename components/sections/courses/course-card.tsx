@@ -29,10 +29,10 @@ export function CourseCard({ course, index }: { course: CourseData; index: numbe
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "150px" }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
       className="h-full"
     >
       <GlassCard className="p-0 overflow-hidden border-white/5 hover:border-primary-blue/30 transition-all duration-500 h-full flex flex-col group hover:-translate-y-2">

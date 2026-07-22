@@ -28,7 +28,7 @@ export function SkillsSection() {
         <div className="absolute top-[30%] right-[-5%] w-[40%] h-[40%] bg-primary-green/5 rounded-full blur-[120px] -z-10" />
       </div>
 
-      <Container className="max-w-[1200px]">
+      <Container className="max-w-[1440px]">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-[800px] mx-auto mb-16 lg:mb-24">
@@ -68,7 +68,7 @@ export function SkillsSection() {
         <PrimaryStackCard stack={primaryStack} />
 
         {/* 2-Column Layout */}
-        <div className="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-12 items-start mt-12">
+        <div className="grid lg:grid-cols-[240px_1fr] gap-6 lg:gap-8 items-start mt-12">
           
           {/* LEFT: Categories */}
           <motion.div 
@@ -111,8 +111,8 @@ export function SkillsSection() {
             ))}
           </div>
 
-          {/* RIGHT: Technology Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 min-h-[500px] content-start">
+          {/* RIGHT: Technology Grid (4 Cards Per Row) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 min-h-[500px] content-start">
             <AnimatePresence mode="popLayout">
               {filteredTech.map((tech, index) => (
                 <motion.div

@@ -9,9 +9,7 @@ export interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
-  ({ className, animated = true, children, ...props }, ref) => {
-    // We cast to any here to satisfy both standard div and motion.div props
-    // without conflicting on React 19 ReactNode vs framer motion children types
+  ({ className, animated = false, children, ...props }, ref) => {
     const Component: any = animated ? motion.div : "div";
     
     return (
@@ -22,10 +20,10 @@ export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
           className
         )}
         {...(animated ? {
-          initial: { opacity: 0, y: 20 },
+          initial: { opacity: 0, y: 15 },
           whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true },
-          transition: { duration: 0.5 }
+          viewport: { once: true, margin: "100px" },
+          transition: { duration: 0.3 }
         } : {})}
         {...props}
       >

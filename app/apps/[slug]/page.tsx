@@ -136,33 +136,28 @@ export default async function AppLandingPage({ params }: AppParams) {
               <ExternalLink className="absolute top-6 right-6 w-5 h-5 text-white/20 group-hover:text-teal-400 transition-colors" />
             </Link>
 
-            <Link href={`/apps/${app.slug}/support`} className="flex flex-col gap-4 p-6 rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-orange-500/30 transition-all group overflow-hidden relative lg:col-span-2">
+            <Link href={`/apps/${app.slug}/support`} className="flex flex-col gap-4 p-6 rounded-3xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-orange-500/30 transition-all group overflow-hidden relative">
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform shrink-0">
-                  <Shield className="w-8 h-8" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">24/7 Support</h3>
-                  <p className="text-sm text-muted-foreground">Need help? Get in touch with our dedicated support team.</p>
-                </div>
+              <div className="w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
+                <Shield className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">24/7 Support</h3>
+                <p className="text-sm text-muted-foreground">Need help? Get in touch with our dedicated support team.</p>
               </div>
               <ExternalLink className="absolute top-6 right-6 w-5 h-5 text-white/20 group-hover:text-orange-400 transition-colors" />
             </Link>
-          </div>
 
-          <div className="mt-8">
-            <Link href={`/apps/${app.slug}/delete-account`} className="flex items-center justify-between p-6 rounded-3xl bg-red-500/5 border border-red-500/10 hover:bg-red-500/10 hover:border-red-500/30 transition-all group max-w-2xl mx-auto">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 group-hover:scale-110 transition-transform">
-                  <Trash2 className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-red-400 mb-1 group-hover:text-red-300 transition-colors">Delete Account</h3>
-                  <p className="text-sm text-red-500/60">Permanently remove your account and data.</p>
-                </div>
+            <Link href={`/apps/${app.slug}/delete-account`} className="flex flex-col gap-4 p-6 rounded-3xl bg-gradient-to-br from-red-500/5 to-transparent border border-red-500/10 hover:border-red-500/30 transition-all group overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 group-hover:scale-110 transition-transform">
+                <Trash2 className="w-6 h-6" />
               </div>
-              <ExternalLink className="w-5 h-5 text-red-500/30 group-hover:text-red-400 transition-colors" />
+              <div>
+                <h3 className="text-xl font-bold text-red-400 mb-1 group-hover:text-red-300 transition-colors">Delete Account</h3>
+                <p className="text-sm text-red-500/60">Permanently remove your account and data.</p>
+              </div>
+              <ExternalLink className="absolute top-6 right-6 w-5 h-5 text-red-500/30 group-hover:text-red-400 transition-colors" />
             </Link>
           </div>
         </div>

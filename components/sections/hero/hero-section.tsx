@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform, Variants } from "framer-motion";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { AnimatedName } from "@/components/ui/animated-name";
 import { GradientText } from "@/components/ui/gradient-text";
 import { SocialIcon } from "@/components/ui/social-icon";
 import { HeroIllustration } from "./hero-illustration";
@@ -40,12 +41,20 @@ export function HeroSection() {
   const bgX = useTransform(smoothX, [-1, 1], [-20, 20]);
   const bgY = useTransform(smoothY, [-1, 1], [-20, 20]);
 
+  let ticking = false;
   const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
-    const x = (clientX / window.innerWidth) * 2 - 1;
-    const y = (clientY / window.innerHeight) * 2 - 1;
-    mouseX.set(x);
-    mouseY.set(y);
+    if (!ticking) {
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+      window.requestAnimationFrame(() => {
+        const x = (clientX / window.innerWidth) * 2 - 1;
+        const y = (clientY / window.innerHeight) * 2 - 1;
+        mouseX.set(x);
+        mouseY.set(y);
+        ticking = false;
+      });
+      ticking = true;
+    }
   };
 
   const scrollToNext = () => {
@@ -62,66 +71,31 @@ export function HeroSection() {
       {/* Base Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-30"></div>
       
-      {/* Noise Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.015] dark:opacity-[0.03] mix-blend-overlay pointer-events-none -z-20" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }}></div>
-      
       {/* Soft Vignette Overlay */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(var(--background),0.4)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] -z-10 mix-blend-multiply dark:mix-blend-overlay" />
       
-      {/* Tiny Glowing Particles */}
+      {/* Tiny Glowing Particles (Lightweight CSS) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-20">
-        {[...Array(15)].map((_, i) => {
-          // Deterministic pseudo-random values based on index to prevent SSR hydration mismatch
-          const randomTop = (i * 17) % 100;
-          const randomLeft = (i * 23 + 13) % 100;
-          const randomDuration = 3 + ((i * 7) % 5);
-          const randomDelay = (i * 3) % 2;
-
-          return (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 rounded-full bg-white/20 blur-[1px]"
-              style={{
-                top: `${randomTop}%`,
-                left: `${randomLeft}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.1, 0.5, 0.1],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: randomDuration,
-                repeat: Infinity,
-                delay: randomDelay,
-              }}
-            />
-          );
-        })}
+        {[...Array(5)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1.5 h-1.5 rounded-full bg-white/20 blur-[1px]"
+            style={{
+              top: `${(i * 23 + 10) % 80}%`,
+              left: `${(i * 31 + 15) % 85}%`,
+            }}
+          />
+        ))}
       </div>
       
-      {/* Parallax Background Glows */}
-      <motion.div 
-        style={{ x: bgX, y: bgY }}
-        className="absolute top-0 left-[-10%] w-[50%] h-[50%] pointer-events-none -z-20 flex items-center justify-center"
-      >
-        <motion.div 
-          animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="w-full h-full bg-primary-blue/10 rounded-full blur-[150px]"
-        />
-      </motion.div>
+      {/* Static GPU Background Glows */}
+      <div className="absolute top-0 left-[-10%] w-[50%] h-[50%] pointer-events-none -z-20 flex items-center justify-center">
+        <div className="w-full h-full bg-primary-blue/10 rounded-full blur-3xl transform-gpu" />
+      </div>
       
-      <motion.div 
-        style={{ x: useTransform(smoothX, [-1, 1], [20, -20]), y: useTransform(smoothY, [-1, 1], [20, -20]) }}
-        className="absolute bottom-0 right-[-10%] w-[50%] h-[50%] pointer-events-none -z-20 flex items-center justify-center"
-      >
-        <motion.div 
-          animate={{ scale: [1, 1.1, 1], opacity: [0.7, 0.9, 0.7] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="w-full h-full bg-primary-green/10 rounded-full blur-[150px]"
-        />
-      </motion.div>
+      <div className="absolute bottom-0 right-[-10%] w-[50%] h-[50%] pointer-events-none -z-20 flex items-center justify-center">
+        <div className="w-full h-full bg-primary-green/10 rounded-full blur-3xl transform-gpu" />
+      </div>
       {/* ------------------------- */}
 
       <Container className="relative z-10 flex flex-col flex-1 justify-center mt-10 md:mt-20 lg:mt-0">
@@ -135,8 +109,7 @@ export function HeroSection() {
             className="flex flex-col items-start order-2 lg:order-1 mt-8 lg:mt-0"
           >
             <motion.h1 variants={itemVariants} className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 text-foreground tracking-tight">
-              Hi, I&apos;m <br className="hidden sm:block" />
-              Parsuram Naik
+              <AnimatedName />
               <span className="block h-4"></span>
               <GradientText>Android Developer.</GradientText>
               <br />

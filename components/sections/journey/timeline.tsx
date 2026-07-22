@@ -33,10 +33,10 @@ export function Timeline({ events }: { events: TimelineEvent[] }) {
         return (
           <motion.div
             key={event.id}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+            viewport={{ once: true, margin: "150px" }}
+            transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.2) }}
             className="relative flex items-center justify-between md:justify-normal w-full mb-12 last:mb-0"
           >
             {/* Desktop Left / Mobile Content */}
