@@ -58,8 +58,13 @@ export const focusData: FocusItem[] = [
   { id: "android", title: "Building Android Applications", icon: "📱" },
   { id: "ai", title: "Exploring Artificial Intelligence", icon: "🤖" },
   { id: "web", title: "Developing Modern Websites", icon: "🌐" },
+  { id: "arch", title: "Clean System Architecture", icon: "⚙️" },
   { id: "edu", title: "Creating Educational Content", icon: "🎓" },
-  { id: "saas", title: "Building SaaS Products", icon: "🚀" }
+  { id: "saas", title: "Building SaaS Products", icon: "🚀" },
+  { id: "cloud", title: "Cloud & Backend Systems", icon: "☁️" },
+  { id: "design", title: "UI/UX & Micro-Animations", icon: "🎨" },
+  { id: "community", title: "Open Source & Mentorship", icon: "💡" },
+  { id: "automation", title: "AI & DevOps Automation", icon: "⚡" }
 ];
 
 export const goalsData: Goal[] = [

@@ -31,13 +31,28 @@ const IconMap: Record<string, React.ElementType> = {
   playstore: SiGoogleplay,
 };
 
+const BrandColors: Record<string, string> = {
+  android: "text-[#3DDC84]",     // Android Studio Green
+  kotlin: "text-[#A97BFF]",      // Kotlin Purple/Indigo
+  java: "text-[#F89820]",        // Java Orange
+  firebase: "text-[#FFCA28]",    // Firebase Amber/Yellow
+  react: "text-[#61DAFB]",       // React Cyan
+  nextjs: "text-foreground",     // Next.js White
+  github: "text-foreground",     // GitHub White
+  vscode: "text-[#007ACC]",      // VS Code Blue
+  figma: "text-[#F24E1E]",       // Figma Coral/Red
+  playstore: "text-[#00C853]",   // Google Play Green
+};
+
 export function AboutTechStack({ data }: { data: TechItem[] }) {
   return (
     <div className="mb-16">
       <h4 className="text-xl font-heading font-bold mb-6 text-foreground">Tech Stack</h4>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-3 sm:gap-4">
         {data.map((tech, idx) => {
           const Icon = IconMap[tech.icon] || FaGithub;
+          const colorClass = BrandColors[tech.icon] || "text-primary-blue";
+
           return (
             <motion.div
               key={idx}
@@ -45,11 +60,11 @@ export function AboutTechStack({ data }: { data: TechItem[] }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              whileHover={{ y: -5, scale: 1.05 }}
-              className="glass px-4 py-3 rounded-xl border border-white/10 flex items-center gap-3 cursor-default hover:border-primary-blue/30 transition-colors shadow-soft hover:shadow-elevation"
+              whileHover={{ y: -4, scale: 1.05 }}
+              className="group glass px-4 py-3 rounded-xl border border-white/10 dark:border-white/10 border-slate-300 flex items-center gap-3 cursor-default hover:border-white/30 transition-all shadow-sm hover:shadow-lg bg-black/30 dark:bg-black/30 bg-white"
             >
-              <Icon className="text-2xl text-muted-foreground group-hover:text-foreground transition-colors" />
-              <span className="text-sm font-semibold text-foreground/90">{tech.name}</span>
+              <Icon className={`text-2xl shrink-0 transition-transform duration-300 group-hover:scale-115 ${colorClass}`} />
+              <span className="text-sm font-bold text-foreground tracking-wide">{tech.name}</span>
             </motion.div>
           );
         })}

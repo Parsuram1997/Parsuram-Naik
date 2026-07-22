@@ -129,9 +129,14 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4 w-full sm:w-auto mb-12">
-              <Button size="lg" className="rounded-full w-full sm:w-auto group" onClick={() => {
-                document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
-                history.pushState(null, '', '#apps');
+              <Button size="lg" className="rounded-full w-full sm:w-auto group cursor-pointer" onClick={() => {
+                const el = document.getElementById('apps');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                  window.history.pushState(null, '', '#apps');
+                } else {
+                  window.location.href = '/#apps';
+                }
               }}>
                 Explore My Apps
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

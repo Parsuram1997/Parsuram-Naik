@@ -130,10 +130,13 @@ export function CertificatePreview() {
 
             {/* Course Ribbon Banner */}
             <div className="relative my-1 max-w-xl w-full">
-              <div className="relative px-4 sm:px-6 py-2 bg-[#0a162c] border border-amber-400/70 rounded-lg shadow-sm text-center">
+              <div className="relative px-4 sm:px-6 py-2.5 bg-[#0a162c] border border-amber-400/70 rounded-lg shadow-sm text-center flex flex-col items-center justify-center gap-0.5">
                 <h5 className="whitespace-nowrap text-xs sm:text-sm md:text-base font-bold font-heading text-white uppercase tracking-wider">
-                  MASTER ANDROID DEVELOPMENT <span className="text-amber-400 text-xs">(ALL PRODUCTS INCLUDED)</span>
+                  MASTER ANDROID DEVELOPMENT
                 </h5>
+                <span className="whitespace-nowrap text-amber-400 text-[10px] sm:text-xs font-bold tracking-wider uppercase">
+                  (ALL PRODUCTS INCLUDED)
+                </span>
               </div>
 
               {/* Lifetime Duration Badge */}

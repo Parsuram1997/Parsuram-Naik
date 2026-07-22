@@ -13,6 +13,14 @@ export function TestimonialsSection() {
   const featuredTestimonial = testimonialsData.find(t => t.featured);
   const otherTestimonials = testimonialsData.filter(t => !t.featured);
 
+  // Divide 23 non-featured testimonials into 2 rows for dual infinite auto-scrolling
+  const row1 = otherTestimonials.slice(0, 12);
+  const row2 = otherTestimonials.slice(12);
+
+  // Duplicate each row array for seamless loop
+  const marqueeRow1 = [...row1, ...row1];
+  const marqueeRow2 = [...row2, ...row2];
+
   return (
     <section id="testimonials" className="relative py-24 md:py-32 overflow-hidden dark:bg-black/40 bg-slate-100/70 border-t dark:border-white/5 border-slate-200">
       {/* Background Decor */}
@@ -28,7 +36,7 @@ export function TestimonialsSection() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 text-xs font-semibold text-yellow-500 tracking-wider uppercase mb-6"
           >
-            ⭐ Testimonials
+            ⭐ Testimonials & Social Proof
           </motion.div>
           
           <motion.h2
@@ -49,18 +57,56 @@ export function TestimonialsSection() {
             transition={{ delay: 0.2 }}
             className="text-lg text-muted-foreground"
           >
-            Feedback from students, app users, and clients from around the globe.
+            Real feedback from 24+ students, app users, developers, and clients across the globe.
           </motion.p>
         </div>
 
         {/* Featured Testimonial */}
         {featuredTestimonial && <FeaturedReview testimonial={featuredTestimonial} />}
 
-        {/* Testimonial Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
-          {otherTestimonials.map((testimonial, idx) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={idx} />
-          ))}
+        {/* --- DUAL INFINITE AUTO-SCROLLING MARQUEE (CONTAINED WITHIN SECTION WIDTH) --- */}
+        <div className="relative w-full overflow-hidden rounded-3xl mb-32 space-y-6 group/marquee py-4">
+          
+          {/* Left & Right Gradient Fade Masks */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-100/90 dark:from-background via-slate-100/60 dark:via-background/80 to-transparent z-20" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-100/90 dark:from-background via-slate-100/60 dark:via-background/80 to-transparent z-20" />
+
+          {/* ROW 1: Auto-scrolls LEFT infinitely */}
+          <div className="flex overflow-hidden">
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 45,
+                ease: "linear",
+              }}
+              className="flex gap-6 w-max group-hover/marquee:[animation-play-state:paused]"
+            >
+              {marqueeRow1.map((testimonial, idx) => (
+                <TestimonialCard key={`row1-${testimonial.id}-${idx}`} testimonial={testimonial} index={idx} />
+              ))}
+            </motion.div>
+          </div>
+
+          {/* ROW 2: Auto-scrolls RIGHT infinitely */}
+          <div className="flex overflow-hidden">
+            <motion.div
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 50,
+                ease: "linear",
+              }}
+              className="flex gap-6 w-max group-hover/marquee:[animation-play-state:paused]"
+            >
+              {marqueeRow2.map((testimonial, idx) => (
+                <TestimonialCard key={`row2-${testimonial.id}-${idx}`} testimonial={testimonial} index={idx} />
+              ))}
+            </motion.div>
+          </div>
+
         </div>
 
         {/* Statistics / Trust Counters */}

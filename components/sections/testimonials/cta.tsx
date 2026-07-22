@@ -12,7 +12,7 @@ export function CTA() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="mt-32 max-w-4xl mx-auto"
+      className="mt-32 w-full"
     >
       <div className="relative p-1 rounded-3xl bg-gradient-to-r from-primary-blue via-primary-green to-primary-blue overflow-hidden">
         {/* Animated border effect */}

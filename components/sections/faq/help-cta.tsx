@@ -14,7 +14,7 @@ export function HelpCTA() {
       transition={{ duration: 0.6 }}
       className="mt-20 text-center"
     >
-      <GlassCard className="max-w-3xl mx-auto p-8 md:p-12 border-primary-blue/20 bg-gradient-to-b from-background to-primary-blue/5">
+      <GlassCard className="w-full p-8 md:p-12 border-white/10 dark:border-white/10 border-slate-200 bg-gradient-to-b from-background to-primary-blue/5">
         <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary-blue mx-auto mb-6">
           <HelpCircle className="w-8 h-8" />
         </div>

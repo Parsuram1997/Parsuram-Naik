@@ -10,7 +10,7 @@ interface CourseFilterProps {
 
 export function CourseFilter({ categories, activeCategory, onSelect }: CourseFilterProps) {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+    <div className="w-full flex flex-wrap items-center justify-center gap-2.5 mb-16 p-3 sm:p-4 rounded-3xl glass border border-white/10 dark:border-white/10 border-slate-200 shadow-sm">
       {categories.map((category) => {
         const isActive = activeCategory === category;
         return (
@@ -19,10 +19,10 @@ export function CourseFilter({ categories, activeCategory, onSelect }: CourseFil
             onClick={() => onSelect(category)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+            className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 ${
               isActive
-                ? "bg-gradient-to-r from-primary-blue to-primary-green text-white shadow-[0_0_15px_rgba(0,255,170,0.3)]"
-                : "glass bg-white/5 border border-white/10 text-muted-foreground hover:text-foreground hover:bg-white/10"
+                ? "bg-gradient-to-r from-primary-blue to-primary-green text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                : "glass bg-white/5 border border-white/10 dark:border-white/10 border-slate-200 text-muted-foreground hover:text-foreground hover:bg-white/10"
             }`}
           >
             {category}

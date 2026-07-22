@@ -3,8 +3,19 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Shield, FileText, HelpCircle, FileClock, Trash2, ExternalLink } from "lucide-react";
+import { Shield, FileText, HelpCircle, FileClock, Trash2, ExternalLink, Sparkles, ShieldCheck, BarChart3, Cloud, Target, Zap, CheckCircle2 } from "lucide-react";
 import { AppHeroClient } from "@/components/apps/AppHeroClient";
+
+function getFeatureIcon(featureText: string) {
+  const text = featureText.toLowerCase();
+  if (text.includes("ai") || text.includes("smart") || text.includes("categorization")) return Sparkles;
+  if (text.includes("budget") || text.includes("chart") || text.includes("insight") || text.includes("analytics")) return BarChart3;
+  if (text.includes("cloud") || text.includes("sync") || text.includes("backup")) return Cloud;
+  if (text.includes("secure") || text.includes("privacy") || text.includes("lock")) return ShieldCheck;
+  if (text.includes("goal") || text.includes("target")) return Target;
+  if (text.includes("real-time") || text.includes("fast") || text.includes("speed")) return Zap;
+  return CheckCircle2;
+}
 
 type AppParams = {
   params: Promise<{
@@ -23,17 +34,12 @@ export async function generateMetadata({ params }: AppParams): Promise<Metadata>
   }
 
   return {
-    title: `${app.name} | Parsuram Naik`,
+    title: `${app.name} - App Details & Features`,
     description: app.description,
-    openGraph: {
-      title: `${app.name} - Premium Android App`,
-      description: app.description,
-      images: [{ url: app.icon }],
-    },
   };
 }
 
-export default async function AppLandingPage({ params }: AppParams) {
+export default async function AppDetailPage({ params }: AppParams) {
   const { slug } = await params;
   const app = getAppBySlug(slug);
 
@@ -50,32 +56,64 @@ export default async function AppLandingPage({ params }: AppParams) {
         {/* Screenshots */}
         {app.screenshots && app.screenshots.length > 0 && (
           <div className="mb-20">
-            <h2 className="text-2xl font-bold font-heading text-white mb-8 flex items-center gap-3">
-              App Preview
+            <h2 className="text-2xl font-bold font-heading text-white mb-6 flex items-center gap-3">
+              <span>App Preview</span>
             </h2>
-            <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent snap-x">
+            <div className="flex gap-5 overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent snap-x">
               {app.screenshots.map((screenshot, i) => (
-                <div key={i} className="w-[280px] md:w-[320px] shrink-0 snap-center rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-black/40 aspect-[9/19] hover:border-white/20 transition-colors">
-                  <img src={screenshot.url} alt={screenshot.alt} className="w-full h-full object-cover" />
+                <div key={i} className="w-[180px] sm:w-[210px] md:w-[240px] shrink-0 snap-center rounded-[1.75rem] overflow-hidden border border-white/10 dark:border-white/15 border-slate-200 shadow-xl bg-slate-900 aspect-[9/18] hover:border-primary-blue/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                  <img src={screenshot.url} alt={screenshot.alt} className="w-full h-full object-cover object-top" />
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* Features */}
+        {/* Features - Premium Redesign */}
         {app.features && app.features.length > 0 && (
           <div id="features" className="mb-24 scroll-mt-32">
-            <h2 className="text-2xl md:text-3xl font-bold font-heading text-white mb-10">Key Features</h2>
+            <div className="flex flex-col items-start mb-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-extrabold text-emerald-400 tracking-wider uppercase mb-3">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                Key Capabilities
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold font-heading text-white">
+                Everything You Need to Succeed
+              </h2>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {app.features.map((feature, i) => (
-                <div key={i} className="flex items-start gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all hover:scale-[1.02] glass">
-                  <div className="w-10 h-10 rounded-2xl bg-primary-green/10 flex items-center justify-center text-primary-green shrink-0 shadow-inner">
-                    <div className="w-3 h-3 rounded-full bg-primary-green shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
+              {app.features.map((feature, i) => {
+                const IconComponent = getFeatureIcon(feature);
+                const featureNum = (i + 1).toString().padStart(2, "0");
+                return (
+                  <div 
+                    key={i} 
+                    className="group relative p-7 rounded-3xl bg-gradient-to-br from-white/5 via-black/40 to-primary-blue/5 border border-white/10 dark:border-white/10 border-slate-300 backdrop-blur-xl hover:border-primary-blue/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between"
+                  >
+                    {/* Top Row: Icon + Number Badge */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-blue/20 via-cyan-500/10 to-teal-400/20 border border-primary-blue/30 flex items-center justify-center text-cyan-400 shrink-0 shadow-md group-hover:scale-110 group-hover:border-cyan-400/50 transition-all duration-300">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      <span className="font-mono text-xs font-black text-muted-foreground px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">
+                        #{featureNum}
+                      </span>
+                    </div>
+
+                    {/* Feature Description */}
+                    <p className="text-foreground font-bold text-lg leading-relaxed group-hover:text-primary-blue transition-colors">
+                      {feature}
+                    </p>
+
+                    {/* Bottom Status Dot Accent */}
+                    <div className="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-semibold text-muted-foreground">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
+                      Production Feature
+                    </div>
                   </div>
-                  <span className="text-muted-foreground font-medium text-lg pt-1">{feature}</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}

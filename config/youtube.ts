@@ -45,7 +45,7 @@ export const channelData: ChannelData = {
   id: "UCxxxxxxxx",
   name: "Parsuram Naik",
   description: "I create educational content covering Android development, AI tools, web development, and practical technology tutorials.",
-  bannerUrl: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop",
+  bannerUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1200&auto=format&fit=crop",
   avatarUrl: "/parsuram.png",
   youtubeUrl: "https://youtube.com",
   stats: {
@@ -119,6 +119,30 @@ export const playlistsData: PlaylistData[] = [
     description: "Next.js, React, Tailwind CSS, and full-stack projects.",
     thumbnailUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
     videoCount: 30,
+    youtubeUrl: "https://youtube.com"
+  },
+  {
+    id: "p4",
+    title: "Kotlin Masterclass",
+    description: "Deep dive into modern Kotlin programming and syntax.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop",
+    videoCount: 18,
+    youtubeUrl: "https://youtube.com"
+  },
+  {
+    id: "p5",
+    title: "Computer Fundamentals",
+    description: "Hardware, networks, operating systems & core logic.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=600&auto=format&fit=crop",
+    videoCount: 15,
+    youtubeUrl: "https://youtube.com"
+  },
+  {
+    id: "p6",
+    title: "Full-Stack SaaS",
+    description: "Build and launch production-ready web and mobile SaaS.",
+    thumbnailUrl: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=600&auto=format&fit=crop",
+    videoCount: 20,
     youtubeUrl: "https://youtube.com"
   }
 ];

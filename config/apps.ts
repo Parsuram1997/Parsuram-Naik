@@ -54,8 +54,8 @@ export const appsData: AppData[] = [
       { label: "Version", value: "2.1.0" },
     ],
     screenshots: [
-      "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop",
     ],
     playStoreUrl: "https://play.google.com",
     releaseDate: "2022",
@@ -82,7 +82,7 @@ export const appsData: AppData[] = [
       { label: "Category", value: "Tools" },
     ],
     screenshots: [
-      "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
     ],
     releaseDate: "2026",
     featured: true,
@@ -108,7 +108,7 @@ export const appsData: AppData[] = [
       { label: "Category", value: "Finance" },
     ],
     screenshots: [
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
     ],
     releaseDate: "2026",
     featured: false,
@@ -135,7 +135,7 @@ export const appsData: AppData[] = [
       { label: "Version", value: "1.2.4" },
     ],
     screenshots: [
-      "https://images.unsplash.com/photo-1521590832167-7bfcfaa6362f?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
     ],
     playStoreUrl: "https://play.google.com",
     releaseDate: "2023",
@@ -163,7 +163,7 @@ export const appsData: AppData[] = [
       { label: "Version", value: "3.0.1" },
     ],
     screenshots: [
-      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop",
     ],
     playStoreUrl: "https://play.google.com",
     releaseDate: "2024",

@@ -93,11 +93,13 @@ export function Navbar() {
   };
 
   const scrollToHome = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const targetElement = document.getElementById("home");
-    if (targetElement) {
+    const isHomePage = window.location.pathname === "/";
+    if (isHomePage) {
+      e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-      history.pushState(null, "", "#home");
+      window.history.pushState(null, "", "/");
+    } else {
+      // Let standard Next.js Link navigate to "/"
     }
   };
 
@@ -115,7 +117,7 @@ export function Navbar() {
           <div className="flex items-center justify-between">
             
             {/* LEFT: Logo */}
-            <a href="/" onClick={scrollToHome} className="group flex items-center h-full">
+            <Link href="/" onClick={scrollToHome} className="group flex items-center h-full">
               <motion.div 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -126,7 +128,7 @@ export function Navbar() {
                 </div>
                 <span>PARSURAM <span className="text-primary-blue">NAIK</span></span>
               </motion.div>
-            </a>
+            </Link>
 
             {/* CENTER: Navigation Links (Desktop) */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2 h-full">

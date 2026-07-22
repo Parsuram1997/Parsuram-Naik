@@ -70,27 +70,90 @@ export function JourneySection() {
           <Timeline events={timelineData} />
         </div>
 
-        {/* Section 3: Current Focus */}
+        {/* Section 3: Current Focus (4-3-2-1 Full-Width Pyramid Layout) */}
         <div className="mb-32">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-heading font-bold mb-4">Current Focus</h3>
-            <p className="text-muted-foreground">What I am actively working on right now.</p>
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary-blue/30 text-xs font-semibold text-primary-blue tracking-wider uppercase mb-3">
+              ⚡ Active Pursuit
+            </span>
+            <h3 className="text-3xl font-heading font-bold text-foreground mb-2">Current Focus</h3>
+            <p className="text-muted-foreground text-sm">Key technical domains and core disciplines I am actively expanding right now.</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {focusData.map((focus, idx) => (
-              <motion.div
-                key={focus.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-              >
-                <GlassCard className="px-6 py-4 flex items-center gap-4 border-white/5 hover:border-primary-blue/30 hover:-translate-y-1 transition-all group">
-                  <span className="text-2xl group-hover:scale-110 transition-transform">{focus.icon}</span>
-                  <span className="font-semibold text-foreground">{focus.title}</span>
-                </GlassCard>
-              </motion.div>
-            ))}
+
+          <div className="flex flex-col items-center gap-4 w-full">
+            
+            {/* Row 1: 4 Cards (Full Width) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+              {focusData.slice(0, 4).map((focus, idx) => (
+                <motion.div
+                  key={focus.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                >
+                  <GlassCard className="px-5 py-4 flex items-center justify-center gap-3 border-white/10 dark:border-white/10 border-slate-200 hover:border-primary-blue/40 hover:shadow-md hover:-translate-y-1 transition-all group h-full text-center">
+                    <span className="text-xl group-hover:scale-110 transition-transform shrink-0">{focus.icon}</span>
+                    <span className="font-semibold text-sm text-foreground group-hover:text-primary-blue transition-colors line-clamp-1">{focus.title}</span>
+                  </GlassCard>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Row 2: 3 Cards (Centered) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-5xl">
+              {focusData.slice(4, 7).map((focus, idx) => (
+                <motion.div
+                  key={focus.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (idx + 4) * 0.05 }}
+                >
+                  <GlassCard className="px-5 py-4 flex items-center justify-center gap-3 border-white/10 dark:border-white/10 border-slate-200 hover:border-primary-green/40 hover:shadow-md hover:-translate-y-1 transition-all group h-full text-center">
+                    <span className="text-xl group-hover:scale-110 transition-transform shrink-0">{focus.icon}</span>
+                    <span className="font-semibold text-sm text-foreground group-hover:text-primary-green transition-colors line-clamp-1">{focus.title}</span>
+                  </GlassCard>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Row 3: 2 Cards (Centered) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-3xl">
+              {focusData.slice(7, 9).map((focus, idx) => (
+                <motion.div
+                  key={focus.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (idx + 7) * 0.05 }}
+                >
+                  <GlassCard className="px-5 py-4 flex items-center justify-center gap-3 border-white/10 dark:border-white/10 border-slate-200 hover:border-amber-400/40 hover:shadow-md hover:-translate-y-1 transition-all group h-full text-center">
+                    <span className="text-xl group-hover:scale-110 transition-transform shrink-0">{focus.icon}</span>
+                    <span className="font-semibold text-sm text-foreground group-hover:text-amber-400 transition-colors line-clamp-1">{focus.title}</span>
+                  </GlassCard>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Row 4: 1 Card (Centered) */}
+            <div className="w-full max-w-md">
+              {focusData.slice(9, 10).map((focus, idx) => (
+                <motion.div
+                  key={focus.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.45 }}
+                >
+                  <GlassCard className="px-5 py-4 flex items-center justify-center gap-3 border-white/10 dark:border-white/10 border-slate-200 hover:border-purple-400/40 hover:shadow-md hover:-translate-y-1 transition-all group text-center">
+                    <span className="text-xl group-hover:scale-110 transition-transform shrink-0">{focus.icon}</span>
+                    <span className="font-semibold text-sm text-foreground group-hover:text-purple-400 transition-colors line-clamp-1">{focus.title}</span>
+                  </GlassCard>
+                </motion.div>
+              ))}
+            </div>
+
           </div>
         </div>
 
