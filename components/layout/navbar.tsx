@@ -107,26 +107,26 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 py-4 h-[76px] transition-colors duration-150 ease-out",
+          "fixed top-0 left-0 right-0 z-40 py-4 h-[76px] transition-colors duration-150 ease-out overflow-hidden",
           isScrolled 
             ? "glass shadow-soft border-b dark:border-white/10 border-slate-200 bg-background/80 backdrop-blur-xl" 
             : "bg-transparent border-transparent shadow-none"
         )}
       >
         <Container>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between w-full gap-2 overflow-hidden">
             
             {/* LEFT: Logo */}
-            <Link href="/" onClick={scrollToHome} className="group flex items-center h-full">
+            <Link href="/" onClick={scrollToHome} className="group flex items-center h-full min-w-0 shrink">
               <motion.div 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-3 font-heading font-bold text-2xl tracking-tight transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(37,99,235,0.5)]"
+                className="flex items-center gap-2 font-heading font-bold text-lg sm:text-2xl tracking-tight transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(37,99,235,0.5)] min-w-0"
               >
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-blue to-primary-green p-0.5 shadow-lg overflow-hidden border border-white/20">
+                <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary-blue to-primary-green p-0.5 shadow-lg overflow-hidden border border-white/20 shrink-0">
                   <img src="/parsuram.png" alt="Parsuram Naik" className="w-full h-full object-cover object-top rounded-[10px]" />
                 </div>
-                <span>PARSURAM <span className="text-primary-blue">NAIK</span></span>
+                <span className="truncate">PARSURAM <span className="text-primary-blue">NAIK</span></span>
               </motion.div>
             </Link>
 
@@ -156,7 +156,7 @@ export function Navbar() {
             </div>
 
             {/* Mobile Menu Toggle */}
-            <div className="flex lg:hidden items-center gap-3">
+            <div className="flex lg:hidden items-center gap-2 shrink-0">
               <SearchButton />
               <button
                 className="p-2 glass rounded-xl text-foreground hover:bg-white/10 transition-colors"

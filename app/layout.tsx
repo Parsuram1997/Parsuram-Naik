@@ -112,7 +112,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth overflow-x-hidden">
       <head>
         <link rel="icon" href="/parsuram.png" type="image/png" sizes="any" />
         <link rel="shortcut icon" href="/parsuram.png" type="image/png" />
