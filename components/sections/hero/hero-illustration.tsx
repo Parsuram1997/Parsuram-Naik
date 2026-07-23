@@ -20,7 +20,7 @@ export function HeroIllustration({ mouseX, mouseY }: HeroIllustrationProps) {
   const layer3Y = useTransform(mouseY, [-1, 1], [40, -40]);
 
   return (
-    <div className="relative w-full h-[500px] lg:h-[700px] flex items-center justify-center pointer-events-none overflow-hidden">
+    <div className="relative w-full h-[500px] lg:h-[700px] flex items-center justify-center pointer-events-none">
       
       {/* 1. Decorative Rings */}
       <motion.div
