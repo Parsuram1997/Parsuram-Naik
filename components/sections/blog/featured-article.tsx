@@ -5,6 +5,7 @@ import { Article } from "@/config/blog";
 import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
 import { Clock, Calendar, ArrowRight, Bookmark, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export function FeaturedArticle({ article }: { article: Article }) {
   if (!article) return null;
@@ -53,10 +54,12 @@ export function FeaturedArticle({ article }: { article: Article }) {
           </p>
 
           <div className="flex items-center gap-4 mt-auto">
-            <Button className="rounded-full bg-gradient-to-r from-primary-blue to-primary-green text-white shadow-md hover:shadow-lg inline-flex items-center gap-2">
-              <span>Read Full Article</span>
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+            <Link href={`/blog/${article.id}`}>
+              <Button className="rounded-full bg-gradient-to-r from-primary-blue to-primary-green text-white shadow-md hover:shadow-lg inline-flex items-center gap-2">
+                <span>Read Full Article</span>
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
             <Button variant="outline" size="icon" className="rounded-full border-white/20 dark:border-white/20 border-slate-300 hover:border-primary-blue/50 hover:text-primary-blue hover:bg-primary-blue/10">
               <Bookmark className="w-4 h-4" />
             </Button>

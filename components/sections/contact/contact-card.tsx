@@ -76,7 +76,7 @@ export function ContactCard() {
   };
 
   return (
-    <GlassCard className="p-8 md:p-10 h-full border-white/10 dark:border-white/10 border-slate-200 flex flex-col gap-6 relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-950/20 via-black/50 to-purple-950/20 shadow-2xl backdrop-blur-2xl">
+    <GlassCard className="p-5 sm:p-8 md:p-10 h-full border-white/10 dark:border-white/10 border-slate-200 flex flex-col gap-6 relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-950/20 via-black/50 to-purple-950/20 shadow-2xl backdrop-blur-2xl">
       
       {/* Background Decor Ambient Mesh Glows */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-primary-blue/15 rounded-full blur-[110px] pointer-events-none" />
@@ -108,11 +108,11 @@ export function ContactCard() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.08, duration: 0.4 }}
-            className={`group relative p-4 rounded-2xl bg-gradient-to-r ${item.gradient} border ${item.borderColor} backdrop-blur-md flex items-center justify-between gap-4 hover:border-white/40 transition-all duration-300 ${item.glowColor} hover:-translate-y-0.5`}
+            className={`group relative p-3 sm:p-4 rounded-2xl bg-gradient-to-r ${item.gradient} border ${item.borderColor} backdrop-blur-md flex items-center justify-between gap-2 sm:gap-4 hover:border-white/40 transition-all duration-300 ${item.glowColor} hover:-translate-y-0.5`}
           >
-            <div className="flex items-center gap-4 min-w-0">
-              <div className={`w-12 h-12 rounded-xl bg-black/40 border ${item.borderColor} flex items-center justify-center ${item.iconColor} shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
-                <item.icon className="w-5 h-5" />
+            <div className="flex items-center gap-2.5 sm:gap-4 min-w-0">
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-black/40 border ${item.borderColor} flex items-center justify-center ${item.iconColor} shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
+                <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">

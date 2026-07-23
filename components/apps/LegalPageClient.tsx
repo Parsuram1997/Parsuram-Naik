@@ -66,32 +66,31 @@ export function LegalPageClient({ app, legalData, pageTitle }: LegalPageClientPr
   if (!legalData) return null;
 
   return (
-    <div className="relative">
+    <div className="relative z-0">
+      {/* Background Decor Ambient Mesh Glows */}
+      <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-primary-blue/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-primary-green/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+
       {/* Reading Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-blue to-primary-green transform origin-left z-50 print:hidden"
         style={{ scaleX }}
       />
 
-      <Container className="max-w-7xl pt-32 pb-24">
-        {/* Top Navigation */}
-        <div className="mb-8 print:hidden">
-          <Link 
-            href={`/apps/${app.slug}`}
-            className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-white transition-colors"
-          >
-            <ChevronLeft className="w-4 h-4 mr-1" />
-            Back to {app.name}
-          </Link>
-        </div>
+      <Container className="max-w-7xl pt-32 pb-24 relative z-10">
+
 
         <div className="flex flex-col lg:flex-row gap-12">
           
           {/* Sticky Table of Contents (Sidebar) */}
-          <aside className="lg:w-1/4 shrink-0 print:hidden">
-            <div className="sticky top-32 bg-white/5 border border-white/10 p-6 rounded-2xl glass">
-              <h3 className="font-heading font-bold text-white mb-4 uppercase tracking-wider text-sm">Contents</h3>
-              <nav className="flex flex-col gap-2 max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pr-2">
+          <aside className="lg:w-1/4 shrink-0 print:hidden sticky top-32 self-start">
+            <div className="h-[calc(100vh-10rem)] bg-white/[0.03] border border-white/5 p-6 lg:p-8 rounded-[2rem] shadow-2xl backdrop-blur-2xl flex flex-col relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-blue/30 to-transparent"></div>
+              <h3 className="font-heading font-bold text-white mb-6 uppercase tracking-wider text-xs flex items-center gap-2 shrink-0">
+                <span className="w-2 h-2 rounded-full bg-primary-blue animate-pulse" />
+                Contents
+              </h3>
+              <nav className="flex-1 flex flex-col gap-1.5 overflow-y-auto scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pr-2">
                 {legalData.sections.map((section, index) => {
                   const id = generateId(section.title);
                   return (
@@ -99,10 +98,10 @@ export function LegalPageClient({ app, legalData, pageTitle }: LegalPageClientPr
                       key={index}
                       href={`#${id}`}
                       className={cn(
-                        "text-sm transition-colors block py-1",
+                        "text-sm transition-all duration-300 block py-3 px-4 rounded-xl border-l-2 mb-1",
                         activeSection === id
-                          ? "text-primary-blue font-semibold"
-                          : "text-muted-foreground hover:text-white"
+                          ? "text-white font-medium bg-gradient-to-r from-primary-blue/15 to-transparent border-primary-blue shadow-[inset_0_0_20px_rgba(37,99,235,0.05)]"
+                          : "text-muted-foreground hover:text-white border-transparent hover:bg-white/5"
                       )}
                     >
                       {section.title}
@@ -115,12 +114,13 @@ export function LegalPageClient({ app, legalData, pageTitle }: LegalPageClientPr
 
           {/* Main Content Area */}
           <div className="lg:w-3/4">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 glass print:bg-transparent print:border-none print:p-0">
+            <div className="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-8 md:p-14 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-2xl print:bg-transparent print:border-none print:p-0 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary-blue/5 rounded-full blur-[100px] pointer-events-none"></div>
               
               {/* Header */}
-              <div className="mb-12 border-b border-white/10 pb-8 print:border-black/20">
-                <h1 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight mb-4 print:text-black">
-                  {pageTitle}
+              <div className="mb-14 border-b border-white/5 pb-10 print:border-black/20 relative z-10">
+                <h1 className="text-4xl md:text-6xl font-heading font-extrabold tracking-tight mb-6 print:text-black">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-br from-white via-white/90 to-white/30">{pageTitle}</span>
                 </h1>
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-muted-foreground print:text-gray-600">
                   <p>App: <strong className="text-white print:text-black">{app.name}</strong></p>
@@ -133,14 +133,15 @@ export function LegalPageClient({ app, legalData, pageTitle }: LegalPageClientPr
                 {legalData.sections.map((section, index) => {
                   const id = generateId(section.title);
                   return (
-                    <section key={index} id={id} className="scroll-mt-32">
-                      <div className="group flex items-center gap-3 mb-6">
-                        <h2 className="text-2xl font-bold text-white print:text-black">
+                    <section key={index} id={id} className="scroll-mt-32 relative z-10">
+                      <div className="group flex items-center gap-4 mb-8">
+                        <h2 className="text-2xl md:text-3xl font-bold text-white print:text-black flex items-center gap-4">
+                          <span className="w-1.5 h-8 rounded-full bg-gradient-to-b from-primary-blue to-primary-green shadow-[0_0_12px_rgba(37,99,235,0.6)] print:hidden" />
                           {section.title}
                         </h2>
                         <button
                           onClick={() => copyLink(id)}
-                          className="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-lg bg-white/5 hover:bg-white/10 text-muted-foreground hover:text-white print:hidden"
+                          className="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-muted-foreground hover:text-white print:hidden"
                           title="Copy link to section"
                         >
                           {copiedId === id ? (
@@ -151,12 +152,12 @@ export function LegalPageClient({ app, legalData, pageTitle }: LegalPageClientPr
                         </button>
                       </div>
                       
-                      <div className="space-y-4">
+                      <div className="space-y-6 text-muted-foreground/90 font-light">
                         {section.content.map((paragraph, pIndex) => (
                           <div 
                             key={pIndex} 
                             dangerouslySetInnerHTML={{ __html: paragraph }} 
-                            className="text-[15px] md:text-base prose prose-invert max-w-none print:prose-p:text-gray-800 print:prose-strong:text-black print:prose-a:text-blue-600"
+                            className="text-[15px] md:text-lg leading-relaxed prose prose-invert max-w-none prose-headings:text-white prose-a:text-primary-blue hover:prose-a:text-primary-green prose-a:transition-colors prose-strong:text-white prose-strong:font-semibold prose-li:marker:text-primary-blue prose-ul:space-y-3 print:prose-p:text-gray-800 print:prose-strong:text-black print:prose-a:text-blue-600"
                           />
                         ))}
                       </div>

@@ -112,7 +112,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth overflow-x-hidden">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
         <link rel="icon" href="/parsuram.png" type="image/png" sizes="any" />
         <link rel="shortcut icon" href="/parsuram.png" type="image/png" />
@@ -123,7 +123,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${poppins.variable} antialiased min-h-screen bg-background text-foreground overflow-x-hidden`}>
+      <body className={`${inter.variable} ${poppins.variable} antialiased min-h-screen bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

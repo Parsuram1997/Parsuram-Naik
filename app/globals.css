@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   /* Colors - Light Theme */
@@ -75,8 +76,6 @@
     box-sizing: border-box;
   }
   html {
-    overflow-x: hidden;
-    max-width: 100vw;
   }
   body {
     background-color: var(--background);
@@ -84,8 +83,6 @@
     font-family: var(--font-sans), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-    max-width: 100vw;
     position: relative;
   }
   h1, h2, h3, h4, h5, h6 {

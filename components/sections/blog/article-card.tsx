@@ -8,7 +8,7 @@ import { Clock, Calendar, ArrowRight, BookOpen } from "lucide-react";
 export function ArticleCard({ article, index }: { article: Article; index: number }) {
   return (
     <motion.a
-      href="#"
+      href={`/blog/${article.id}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

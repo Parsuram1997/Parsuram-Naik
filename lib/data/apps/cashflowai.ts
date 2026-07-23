@@ -11,7 +11,8 @@ export const cashflowai: AppData = {
     "Real-time budget tracking",
     "Interactive financial charts and insights",
     "Secure cloud sync",
-    "Goal setting and tracking"
+    "Goal setting and tracking",
+    "Multi-currency support and live exchange rates"
   ],
   developer: "PARSURAM NAIK",
   version: "1.2.0",
@@ -237,6 +238,41 @@ export const cashflowai: AppData = {
       category: "Account",
       question: "Can I sync my data across multiple devices?",
       answer: "Yes! If you create a free account, your data is securely synced across all your devices using our cloud infrastructure."
+    },
+    {
+      category: "Features",
+      question: "How does the AI categorization work?",
+      answer: "Our AI analyzes your transaction names and descriptions to automatically assign them to the most relevant category. It learns from your manual corrections over time to become even more accurate."
+    },
+    {
+      category: "Data & Privacy",
+      question: "Can I export my financial data?",
+      answer: "Yes, you can export your transaction history and detailed reports as CSV or PDF files directly from the settings menu for easy sharing with your accountant."
+    },
+    {
+      category: "Features",
+      question: "Does it support multiple currencies?",
+      answer: "CashFlowAI supports over 150 global currencies and provides real-time exchange rates, making it perfect for tracking expenses while traveling."
+    },
+    {
+      category: "Features",
+      question: "How do I set up a monthly budget?",
+      answer: "Navigate to the 'Budgets' tab, click the '+' icon, select a category, and enter your limit. The app will automatically notify you when you are close to exceeding it."
+    },
+    {
+      category: "General",
+      question: "Can I track my investments or stocks?",
+      answer: "Currently, CashFlowAI focuses primarily on daily income and expenses. However, dedicated investment tracking is on our roadmap for a future major update."
+    },
+    {
+      category: "Account",
+      question: "What happens if I forget my password?",
+      answer: "If you signed up with Google, you can reset your password via your Google account. If you used an email, simply tap 'Forgot Password' on the login screen to receive a secure reset link."
+    },
+    {
+      category: "Support",
+      question: "How do I contact customer support?",
+      answer: "You can reach our dedicated support team by emailing support@parsuramnaik.in or directly through the 'Help & Support' section in the app settings."
     }
   ],
   

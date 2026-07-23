@@ -59,12 +59,14 @@ export function ResourceCard({ resource, index }: { resource: Resource; index: n
         </div>
         
         {/* Interactive Glowing Download Button */}
-        <button 
+        <a 
+          href={`/resources/${resource.id}.${resource.fileType.toLowerCase()}`}
+          download={`${resource.title.replace(/\s+/g, '_')}.${resource.fileType.toLowerCase()}`}
           aria-label={`Download ${resource.title}`}
           className="w-10 h-10 rounded-xl bg-primary-blue/10 border border-primary-blue/20 text-primary-blue flex items-center justify-center hover:bg-gradient-to-r hover:from-primary-blue hover:to-primary-green hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all duration-300 shrink-0"
         >
           <Download className="w-4 h-4" />
-        </button>
+        </a>
 
       </GlassCard>
     </motion.div>
